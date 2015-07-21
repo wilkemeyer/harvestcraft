@@ -471,7 +471,7 @@ item.chocolatebarItem.name=Schokoriegel
 item.hotchocolateItem.name=Heiße Schokolade
 item.chocolateicecreamItem.name=Schokoladen Eiscreme
 item.vegetablesoupItem.name=Gemüsesuppe
-item.stockItem.name=Stock
+item.stockItem.name=Brühe
 item.fruitsaladItem.name=Fruchtsalat
 
 item.spagettiItem.name=Spagetti
@@ -485,8 +485,8 @@ item.springsaladItem.name=Frühlingssalat
 item.porklettucewrapItem.name=Schweinefleisch Krautwickel
 item.fishlettucewrapItem.name=Fisch Krautwickel
 item.bltItem.name=Speck, Salat und Tomaten-Sandwich
-item.leafychickensandwichItem.name=Leafy Chicken Sandwich
-item.leafyfishsandwichItem.name=Leafy Fish Sandwich
+item.leafychickensandwichItem.name=Hühnchen Sandwich mit Salat
+item.leafyfishsandwichItem.name=Fisch Sandwich mit Salat
 item.deluxecheeseburgerItem.name=Deluxe Cheeseburger
 item.delightedmealItem.name=begeisterte Mahlzeit
 
