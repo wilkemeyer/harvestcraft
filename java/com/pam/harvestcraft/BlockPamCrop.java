@@ -15,9 +15,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
-public class BlockPamCrop extends BlockCrops
+public class BlockPamCrop extends BlockCrops implements IPlantable
 {
 
 
@@ -85,14 +88,15 @@ public class BlockPamCrop extends BlockCrops
 			{
 				return 0;
 			} else
-		{
+		
 	        return 1;
-		}
+		
 	    }
 		
 	@Override
 	protected boolean canPlaceBlockOn(Block p_149854_1_)
     {
+		//Specific Block
 		if (this == BlockRegistry.pamcactusfruitCrop)
         {
         	return p_149854_1_ == Blocks.sand;
@@ -112,11 +116,32 @@ public class BlockPamCrop extends BlockCrops
 		if (this == BlockRegistry.pamseaweedCrop)
         {
         	return p_149854_1_ == Blocks.water;
+        } 
+		//Farmland
+		if (this == BlockRegistry.pamcactusfruitCrop)
+        {
+        	return p_149854_1_ == Blocks.farmland;
+        }
+		if (this == BlockRegistry.pamwhitemushroomCrop)
+        {
+        	return p_149854_1_ == Blocks.farmland;
+        }
+		if (this == BlockRegistry.pamcranberryCrop)
+        {
+        	return p_149854_1_ == Blocks.farmland;
+        }
+		if (this == BlockRegistry.pamriceCrop)
+        {
+        	return p_149854_1_ == Blocks.farmland;
+        }
+		if (this == BlockRegistry.pamseaweedCrop)
+        {
+        	return p_149854_1_ == Blocks.farmland;
         } else
         return p_149854_1_ == Blocks.farmland;
     }
 
-
+	@Override
     protected Item func_149866_i()
     {
     	if (BlockRegistry.cropsdropSeeds == true)
@@ -864,5 +889,43 @@ public class BlockPamCrop extends BlockCrops
         {
             this.field_149868_a[i] = p_149651_1_.registerIcon("harvestcraft:" + this.getTextureName() + "crop_" + i);
         }
+    }
+    
+    @Override
+    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
+    {
+    	if (BlockRegistry.enablecropspecialplanting)
+    	{
+    	if (this == BlockRegistry.pamcactusfruitCrop)
+        {
+        	return EnumPlantType.Desert;
+        }
+		if (this == BlockRegistry.pamriceCrop)
+        {
+        	return EnumPlantType.Water;
+        }
+		if (this == BlockRegistry.pamcranberryCrop)
+        {
+        	return EnumPlantType.Water;
+        }
+		if (this == BlockRegistry.pamseaweedCrop)
+        {
+        	return EnumPlantType.Water;
+        }
+    	}
+
+        return EnumPlantType.Crop;
+    }
+
+    @Override
+    public Block getPlant(IBlockAccess world, int x, int y, int z)
+    {
+        return this;
+    }
+
+    @Override
+    public int getPlantMetadata(IBlockAccess world, int x, int y, int z)
+    {
+        return world.getBlockMetadata(x, y, z);
     }
 }

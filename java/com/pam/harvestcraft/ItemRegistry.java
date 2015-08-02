@@ -56,6 +56,12 @@ public class ItemRegistry
 	  public static Item hardenedleatherItem;
       public static Item freshwaterItem;
       public static Item freshmilkItem;
+      
+      //Baits
+      public static Item grainbaitItem;
+      public static Item veggiebaitItem;
+      public static Item fruitbaitItem;
+      public static Item fishtrapbaitItem;
 	  
 	  //Armor
 	  public static Item hardenedleatherhelmItem;
@@ -824,6 +830,35 @@ public class ItemRegistry
 	public static Item porksausageItem;
 	public static Item raspberrytrifleItem;
 	
+	public static Item pumpkincheesecakeItem;
+	public static Item pumpkinmuffinItem;
+	public static Item suaderoItem;
+	public static Item randomtacoItem;
+	
+	public static Item turkeyrawItem;
+	public static Item turkeycookedItem;
+	public static Item rabbitrawItem;
+	public static Item rabbitcookedItem;
+	public static Item venisonrawItem;
+	public static Item venisoncookedItem;
+	
+	public static Item strawberrymilkshakeItem;
+	public static Item chocolatemilkshakeItem;
+	public static Item bananamilkshakeItem;
+	public static Item cornflakesItem;
+	public static Item coleslawburgerItem;
+	public static Item roastchickenItem;
+	public static Item roastpotatoesItem;
+	public static Item sundayroastItem;
+	public static Item bbqpulledporkItem;
+	public static Item lambwithmintsauceItem;
+	public static Item steakandchipsItem;
+	
+	public static Item cherryicecreamItem;
+	public static Item pistachioicecreamItem;
+	public static Item neapolitanicecreamItem;
+	public static Item spumoniicecreamItem;
+	
 	  public static int cropfoodRestore;
 	  
 	  public static float cropsaturationRestore;
@@ -835,12 +870,13 @@ public class ItemRegistry
       public static float mealsaturation;
 	  public static float meatymealsaturation;
 	  
-	  public static int freshwaterfrombucket;
 	  public static int freshmilkfrombucket;
+	  public static int freshwaterfrombucket;
 	  
 	  public static boolean enablesaltfromwaterbucketrecipe;
 	  
 	  public static int seedrarity;
+	  public static boolean enablecropitemsasseeds;
 	  
 	  public static boolean asparagusseeddropfromgrass;
 		public static boolean barleyseeddropfromgrass;
@@ -907,7 +943,12 @@ public class ItemRegistry
 		public static boolean enabletofuasmeatinRecipes;
 		public static boolean enabletofuasmilkinRecipes;
 		
+		public static boolean enableharvestcraftfish;
 		
+		public static int fishtrapbaitrecipeamount;
+		public static int grainbaitrecipeamount;
+		public static int veggiebaitrecipeamount;
+		public static int fruitbaitrecipeamount;
 		
 		
 	  
@@ -922,10 +963,11 @@ public class ItemRegistry
 	    snacksaturation = (float) config.get("crops" ,"snacksaturation", 0.6F).getDouble(0.6F);
 	    mealsaturation = (float) config.get("crops" ,"mealsaturation", 1.2F).getDouble(1.2F);
 	    meatymealsaturation = (float) config.get("crops" ,"meatymealsaturation", 1.6F).getDouble(1.6F);
-	    freshwaterfrombucket = config.get("miscellaneous recipes", "freshwaterfrombucket", 4).getInt();
 	    freshmilkfrombucket = config.get("miscellaneous recipes", "freshmilkfrombucket", 4).getInt();
+	    freshwaterfrombucket = config.get("miscellaneous recipes", "freshwaterfrombucket", 1).getInt();
 	    enablesaltfromwaterbucketrecipe = config.get("miscellaneous recipes", "enablesaltfromwaterbucketrecipe", true).getBoolean(true);
 	    seedrarity = config.get("seeds", "seedrarity", 1).getInt();
+	    enablecropitemsasseeds = config.get("miscellaneous recipes", "enablecropitemsasseeds", true).getBoolean(true);
 	    
 	    asparagusseeddropfromgrass = config.get("seeds", "asparagusseeddropfromgrass", false).getBoolean(false);
 		 barleyseeddropfromgrass = config.get("seeds", "barleyseeddropfromgrass", false).getBoolean(false);
@@ -992,7 +1034,12 @@ public class ItemRegistry
 		 enabletofuasmeatinRecipes = config.get("miscellaneous recipes", "enabletofuasmeatinRecipes", true).getBoolean(true);
 		 enabletofuasmilkinRecipes = config.get("miscellaneous recipes", "enabletofuasmilkinRecipes", true).getBoolean(true);
 		 
+		 enableharvestcraftfish = config.get("miscellaneous recipes", "enableharvestcraftfish", true).getBoolean(true);
 		 
+		 fishtrapbaitrecipeamount = config.get("miscellaneous recipes", "fishtrapbaitrecipeamount", 4).getInt();
+		 grainbaitrecipeamount = config.get("miscellaneous recipes", "grainbaitrecipeamount", 4).getInt();
+		 veggiebaitrecipeamount = config.get("miscellaneous recipes", "veggiebaitrecipeamount", 4).getInt();
+		 fruitbaitrecipeamount = config.get("miscellaneous recipes", "fruitbaitrecipeamount", 4).getInt();
 		 
 	  }
 
@@ -1051,6 +1098,15 @@ public class ItemRegistry
 		  GameRegistry.registerItem(wovencottonItem, "wovencottonItem");
 		  hardenedleatherItem = new Item().setUnlocalizedName("hardenedleatherItem").setTextureName("harvestcraft:hardenedleatherItem").setCreativeTab(harvestcraft.tabHarvestCraft);
 		  GameRegistry.registerItem(hardenedleatherItem, "hardenedleatherItem");
+		  
+		  grainbaitItem = new Item().setUnlocalizedName("grainbaitItem").setTextureName("harvestcraft:grainbaitItem").setCreativeTab(harvestcraft.tabHarvestCraft);
+		  GameRegistry.registerItem(grainbaitItem, "grainbaitItem");
+	      veggiebaitItem = new Item().setUnlocalizedName("veggiebaitItem").setTextureName("harvestcraft:veggiebaitItem").setCreativeTab(harvestcraft.tabHarvestCraft);
+		  GameRegistry.registerItem(veggiebaitItem, "veggiebaitItem");
+	      fruitbaitItem = new Item().setUnlocalizedName("fruitbaitItem").setTextureName("harvestcraft:fruitbaitItem").setCreativeTab(harvestcraft.tabHarvestCraft);
+		  GameRegistry.registerItem(fruitbaitItem, "fruitbaitItem");
+	      fishtrapbaitItem = new Item().setUnlocalizedName("fishtrapbaitItem").setTextureName("harvestcraft:fishtrapbaitItem").setCreativeTab(harvestcraft.tabHarvestCraft);
+		  GameRegistry.registerItem(fishtrapbaitItem, "fishtrapbaitItem");
 		  
 		  hardenedleatherhelmItem = new ItemPamArmor(armorHardenedLeather, 0).setUnlocalizedName("hardenedleatherhelmItem").setTextureName("harvestcraft:hardenedleatherhelmItem");
 		  GameRegistry.registerItem(hardenedleatherhelmItem, "hardenedleatherhelmItem");
@@ -2384,6 +2440,60 @@ public class ItemRegistry
 			GameRegistry.registerItem(porksausageItem, "porksausageItem");
 			raspberrytrifleItem = new ItemFood(8, ItemRegistry.mealsaturation, false).setUnlocalizedName("raspberrytrifleItem").setTextureName("harvestcraft:raspberrytrifleItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
 			GameRegistry.registerItem(raspberrytrifleItem, "raspberrytrifleItem");
+			
+			pumpkincheesecakeItem = new ItemPamCakeFood(12, ItemRegistry.snacksaturation, false, BlockRegistry.pampumpkincheeseCake).setUnlocalizedName("pumpkincheesecakeItem").setTextureName("harvestcraft:pumpkincheesecakeItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			GameRegistry.registerItem(pumpkincheesecakeItem, "pumpkincheesecakeItem");
+			pumpkinmuffinItem = new ItemFood(8, ItemRegistry.mealsaturation, false).setUnlocalizedName("pumpkinmuffinItem").setTextureName("harvestcraft:pumpkinmuffinItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			GameRegistry.registerItem(pumpkinmuffinItem, "pumpkinmuffinItem");
+			suaderoItem = new ItemFood(10, ItemRegistry.mealsaturation, false).setUnlocalizedName("suaderoItem").setTextureName("harvestcraft:suaderoItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			GameRegistry.registerItem(suaderoItem, "suaderoItem");
+			randomtacoItem = new ItemFood(16, ItemRegistry.mealsaturation, false).setUnlocalizedName("randomtacoItem").setTextureName("harvestcraft:randomtacoItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			GameRegistry.registerItem(randomtacoItem, "randomtacoItem");
+			
+			turkeyrawItem = new ItemFood(2, snacksaturation, true).setUnlocalizedName("turkeyrawItem").setTextureName("harvestcraft:turkeyrawItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			  GameRegistry.registerItem(turkeyrawItem, "turkeyrawItem");
+			turkeycookedItem = new ItemFood(5, meatymealsaturation, true).setUnlocalizedName("turkeycookedItem").setTextureName("harvestcraft:turkeycookedItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			  GameRegistry.registerItem(turkeycookedItem, "turkeycookedItem");
+			rabbitrawItem = new ItemFood(2, snacksaturation, true).setUnlocalizedName("rabbitrawItem").setTextureName("harvestcraft:rabbitrawItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			  GameRegistry.registerItem(rabbitrawItem, "rabbitrawItem");
+			rabbitcookedItem = new ItemFood(5, meatymealsaturation, true).setUnlocalizedName("rabbitcookedItem").setTextureName("harvestcraft:rabbitcookedItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			  GameRegistry.registerItem(rabbitcookedItem, "rabbitcookedItem");
+			venisonrawItem = new ItemFood(3, snacksaturation, true).setUnlocalizedName("venisonrawItem").setTextureName("harvestcraft:venisonrawItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			  GameRegistry.registerItem(venisonrawItem, "venisonrawItem");
+			venisoncookedItem = new ItemFood(8, meatymealsaturation, true).setUnlocalizedName("venisoncookedItem").setTextureName("harvestcraft:venisoncookedItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+			  GameRegistry.registerItem(venisoncookedItem, "venisoncookedItem");
+			  
+			strawberrymilkshakeItem = new ItemFood(6, ItemRegistry.mealsaturation, false).setUnlocalizedName("strawberrymilkshakeItem").setTextureName("harvestcraft:strawberrymilkshakeItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(strawberrymilkshakeItem, "strawberrymilkshakeItem");
+			chocolatemilkshakeItem = new ItemFood(6, ItemRegistry.mealsaturation, false).setUnlocalizedName("chocolatemilkshakeItem").setTextureName("harvestcraft:chocolatemilkshakeItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(chocolatemilkshakeItem, "chocolatemilkshakeItem");
+			bananamilkshakeItem = new ItemFood(6, ItemRegistry.mealsaturation, false).setUnlocalizedName("bananamilkshakeItem").setTextureName("harvestcraft:bananamilkshakeItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(bananamilkshakeItem, "bananamilkshakeItem");
+			cornflakesItem = new ItemFood(8, ItemRegistry.mealsaturation, false).setUnlocalizedName("cornflakesItem").setTextureName("harvestcraft:cornflakesItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(cornflakesItem, "cornflakesItem");
+			coleslawburgerItem = new ItemFood(12, ItemRegistry.meatymealsaturation, false).setUnlocalizedName("coleslawburgerItem").setTextureName("harvestcraft:coleslawburgerItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(coleslawburgerItem, "coleslawburgerItem");
+			roastchickenItem = new ItemFood(9, ItemRegistry.meatymealsaturation, false).setUnlocalizedName("roastchickenItem").setTextureName("harvestcraft:roastchickenItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(roastchickenItem, "roastchickenItem");
+			roastpotatoesItem = new ItemFood(6, ItemRegistry.mealsaturation, false).setUnlocalizedName("roastpotatoesItem").setTextureName("harvestcraft:roastpotatoesItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(roastpotatoesItem, "roastpotatoesItem");
+			sundayroastItem = new ItemFood(14, ItemRegistry.meatymealsaturation, false).setUnlocalizedName("sundayroastItem").setTextureName("harvestcraft:sundayroastItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(sundayroastItem, "sundayroastItem");
+			bbqpulledporkItem = new ItemFood(12, ItemRegistry.meatymealsaturation, false).setUnlocalizedName("bbqpulledporkItem").setTextureName("harvestcraft:bbqpulledporkItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(bbqpulledporkItem, "bbqpulledporkItem");
+			lambwithmintsauceItem = new ItemFood(11, ItemRegistry.meatymealsaturation, false).setUnlocalizedName("lambwithmintsauceItem").setTextureName("harvestcraft:lambwithmintsauceItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(lambwithmintsauceItem, "lambwithmintsauceItem");
+			steakandchipsItem = new ItemFood(12, ItemRegistry.meatymealsaturation, false).setUnlocalizedName("steakandchipsItem").setTextureName("harvestcraft:steakandchipsItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(steakandchipsItem, "steakandchipsItem");
+				
+			cherryicecreamItem = new ItemFood(9, ItemRegistry.mealsaturation, false).setUnlocalizedName("cherryicecreamItem").setTextureName("harvestcraft:cherryicecreamItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(cherryicecreamItem, "cherryicecreamItem");
+			pistachioicecreamItem = new ItemFood(9, ItemRegistry.mealsaturation, false).setUnlocalizedName("pistachioicecreamItem").setTextureName("harvestcraft:pistachioicecreamItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(pistachioicecreamItem, "pistachioicecreamItem");
+			neapolitanicecreamItem = new ItemFood(9, ItemRegistry.mealsaturation, false).setUnlocalizedName("neapolitanicecreamItem").setTextureName("harvestcraft:neapolitanicecreamItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(neapolitanicecreamItem, "neapolitanicecreamItem");
+			spumoniicecreamItem = new ItemFood(9, ItemRegistry.mealsaturation, false).setUnlocalizedName("spumoniicecreamItem").setTextureName("harvestcraft:spumoniicecreamItem").setCreativeTab(harvestcraft.tabHarvestCraft3);
+				GameRegistry.registerItem(spumoniicecreamItem, "spumoniicecreamItem");
 			
 			
 			PamCropItems = (new Item[] 

@@ -32,7 +32,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class harvestcraft
 {
 	public static final String modid = "harvestcraft";
-	public static final String version = "1.7.10g";
+	public static final String version = "1.7.10j";
 	
 	@Mod.Instance("harvestcraft")
 	public static harvestcraft instance;
@@ -107,6 +107,10 @@ public class harvestcraft
 	    GameRegistry.registerTileEntity(TileEntityPamPresser.class,"PamPresser");
 	    GameRegistry.registerTileEntity(TileEntityMarket.class,"PamMarket");
 	    GameRegistry.registerTileEntity(TileEntityOven.class,"PamOven");
+	    GameRegistry.registerTileEntity(TileEntityChurn.class,"PamChurn");
+	    GameRegistry.registerTileEntity(TileEntityQuern.class,"PamQuern");
+	    GameRegistry.registerTileEntity(TileEntityPamAnimalTrap.class,"PamAnimalTrap");
+	    GameRegistry.registerTileEntity(TileEntityPamFishTrap.class,"PamFishTrap");
 	    
 	    proxy.registerHandlers(event);
 

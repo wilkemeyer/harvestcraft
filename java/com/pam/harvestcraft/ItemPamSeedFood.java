@@ -34,6 +34,8 @@ public class ItemPamSeedFood extends ItemFood implements IPlantable
      */
     public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
     {
+    	if (ItemRegistry.enablecropitemsasseeds)
+    	{
         if (par7 != 1)
         {
             return false;
@@ -47,6 +49,8 @@ public class ItemPamSeedFood extends ItemFood implements IPlantable
                 --par1ItemStack.stackSize;
                 return true;
             }
+            if (BlockRegistry.enablecropspecialplanting)
+        	{
             if ((this == ItemRegistry.cranberryItem) && (par3World.getBlock(par4, par5 + 1, par6).getMaterial() == Material.water && par3World.getBlockMetadata(par4, par5 + 1, par6) == 0))
             {
             	par3World.setBlock(par4, par5 + 2, par6, this.field_150908_b);
@@ -65,6 +69,7 @@ public class ItemPamSeedFood extends ItemFood implements IPlantable
                 --par1ItemStack.stackSize;
                 return true;
             }
+        	}
             	else
             {
                 return false;
@@ -74,18 +79,18 @@ public class ItemPamSeedFood extends ItemFood implements IPlantable
         {
             return false;
         }
+    	}
+    	return false;
     }
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
     {
+    	if (BlockRegistry.enablecropspecialplanting)
+    	{
     	if (this == ItemRegistry.cactusfruitItem)
         {
         	return EnumPlantType.Desert;
-        }
-    	if (this == ItemRegistry.cactusfruitItem)
-        {
-        	return EnumPlantType.Crop;
         }
 		if (this == ItemRegistry.cranberryItem)
         {
@@ -98,7 +103,8 @@ public class ItemPamSeedFood extends ItemFood implements IPlantable
 		if (this == ItemRegistry.seaweedItem)
         {
         	return EnumPlantType.Water;
-        } else
+        }
+    	}
         return EnumPlantType.Crop;
     }
 

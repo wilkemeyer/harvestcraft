@@ -6,6 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
@@ -47,7 +48,7 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(BlockRegistry.pampaperbarkSapling, Items.paper, new ItemStack(Blocks.sapling, 1, 3)));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(BlockRegistry.pammapleSapling, ItemRegistry.maplesyrupItem, new ItemStack(Blocks.sapling, 1, 1)));
 		
-		if (ItemRegistry.enablecroptoseedRecipe = true)
+		if (ItemRegistry.enablecroptoseedRecipe)
 		{
 		for(int i = 0; i < 57; ++i)
 		{
@@ -66,12 +67,15 @@ public class PamFoodRecipes
 			CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.saltItem, "toolPot", "listAllwater"));
 		}
 		
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.freshwaterItem, "listAllwater"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Items.sugar, "toolPot", "foodHoneydrop"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Items.sugar, "toolPot", "dropHoney"));
 		
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Items.fish, "listAllfishraw"));
+		
 		//Fresh Items
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.freshwaterItem, ItemRegistry.freshwaterfrombucket), Items.water_bucket));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.freshwaterItem, 1), Items.water_bucket));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.freshmilkItem, ItemRegistry.freshmilkfrombucket), Items.milk_bucket));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(Items.cake, 1), new Object[] {
@@ -142,9 +146,9 @@ public class PamFoodRecipes
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pastaItem, "toolMixingbowl", "foodDough", "foodButter"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.heavycreamItem, "toolMixingbowl", "listAllmilk"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.butterItem, "toolSaucepan", "listAllReplaceheavycream", "foodSalt"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.butterItem, "toolSaucepan", "listAllReplaceheavycream", "dustSalt"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.butterItem, "toolSaucepan", "listAllReplaceheavycream", "itemSalt"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.butterItem, "toolSaucepan", "listAllheavycream", "foodSalt"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.butterItem, "toolSaucepan", "listAllheavycream", "dustSalt"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.butterItem, "toolSaucepan", "listAllheavycream", "itemSalt"));
 
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cheeseItem, "toolPot", "listAllmilk", "foodSalt"));
@@ -157,18 +161,18 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.icecreamItem, "toolMixingbowl", "listAllmilk", "itemSalt", Items.snowball));
 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grilledcheeseItem, "toolSkillet", "foodToast", "foodButter", "foodCheese"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applesauceItem, "toolPot", Items.apple));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applejuiceItem, "toolJuicer", Items.apple));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applepieItem, "toolBakeware", Items.apple, Items.sugar, "foodDough"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.caramelappleItem, Items.apple, "foodCaramel", Items.stick));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pumpkinbreadItem, "toolBakeware", Blocks.pumpkin, Items.sugar, "foodDough"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pumpkinsoupItem, "toolPot", Blocks.pumpkin, "listAllReplaceheavycream", "foodStock"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applesauceItem, "toolPot", "cropApple"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applejuiceItem, "toolJuicer", "cropApple"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applepieItem, "toolBakeware", "cropApple", "listAllsugar", "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.caramelappleItem, "cropApple", "foodCaramel", "stickWood"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pumpkinbreadItem, "toolBakeware", Blocks.pumpkin, "listAllsugar", "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pumpkinsoupItem, "toolPot", Blocks.pumpkin, "listAllheavycream", "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.melonjuiceItem, "toolJuicer", Items.melon));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.melonsmoothieItem, "toolJuicer", Items.melon, Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.carrotjuiceItem, "toolJuicer", Items.carrot));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.carrotcakeItem, "toolBakeware", Items.carrot, Items.sugar, "foodDough"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.carrotsoupItem, "toolPot", Items.carrot, "listAllReplaceheavycream", "foodStock"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.glazedcarrotsItem, "toolSaucepan", Items.carrot, "foodButter", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.carrotcakeItem, "toolBakeware", Items.carrot, "listAllsugar", "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.carrotsoupItem, "toolPot", Items.carrot, "listAllheavycream", "foodStock"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.glazedcarrotsItem, "toolSaucepan", Items.carrot, "foodButter", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.butteredpotatoItem, Items.baked_potato, "foodButter"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.loadedbakedpotatoItem, "foodButteredpotato", "listAllporkcooked", "foodCheese"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mashedpotatoesItem, "toolMixingbowl", "foodButteredpotato", "foodSalt"));
@@ -193,7 +197,7 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chickenpotpieItem, "toolBakeware", "listAllchickenraw", Items.potato, Items.carrot, "foodDough"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.breadedporkchopItem, "toolSkillet", "listAllporkraw", "foodFlour"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.hotdogItem, "toolPot", "listAllporkraw", Items.bread));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bakedhamItem, "toolBakeware", "listAllporkraw", Items.apple, Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bakedhamItem, "toolBakeware", "listAllporkraw", "cropApple", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.hamburgerItem, "toolSkillet", "listAllbeefraw", "foodToast"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cheeseburgerItem, "foodHamburger", "foodCheese"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.baconcheeseburgerItem, "foodCheeseburger", "listAllporkcooked"));
@@ -206,10 +210,10 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.scrambledeggItem, "toolSaucepan", "listAllegg"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.boiledeggItem, "toolPot", "listAllegg"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.eggsaladItem, "toolCuttingboard", "foodBoiledegg", "foodMayo"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.caramelItem, "toolSaucepan", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.taffyItem, "toolSaucepan", Items.sugar, "listAllwater", "foodSalt"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.taffyItem, "toolSaucepan", Items.sugar, "listAllwater", "dustSalt"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.taffyItem, "toolSaucepan", Items.sugar, "listAllwater", "itemSalt"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.caramelItem, "toolSaucepan", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.taffyItem, "toolSaucepan", "listAllsugar", "listAllwater", "foodSalt"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.taffyItem, "toolSaucepan", "listAllsugar", "listAllwater", "dustSalt"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.taffyItem, "toolSaucepan", "listAllsugar", "listAllwater", "itemSalt"));
 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.spidereyesoupItem, "toolPot", Items.spider_eye, "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.zombiejerkyItem, Items.rotten_flesh, "foodSalt", "foodSalt"));
@@ -222,7 +226,7 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cocoapowderItem, "toolMortarandpestle", new ItemStack(Items.dye, 1, 3)));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatebarItem, "toolSaucepan", "foodCocoapowder", "foodButter", "listAllmilk"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.hotchocolateItem, "toolJuicer", "foodCocoapowder", "listAllmilk"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolateicecreamItem, "toolMixingbowl", "listAllReplaceicecream", "foodCocoapowder"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolateicecreamItem, "toolMixingbowl", "listAllicecream", "foodCocoapowder"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegetablesoupItem, "toolPot", Items.potato, Items.carrot, "listAllmushroom", "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegetablesoupItem, "toolPot", Items.potato, Items.carrot, "listAllmushroom", "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegetablesoupItem, "toolPot", Items.potato, Items.carrot, "listAllmushroom", "foodStock"));
@@ -279,7 +283,7 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.creamedcornItem, "toolSaucepan", "cropCorn", "cropOnion", "foodHeavycream"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberrysmoothieItem, "toolJuicer", "cropStrawberry", Items.snowball));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberrypieItem, "toolBakeware", "cropStrawberry", "foodDough", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberrypieItem, "toolBakeware", "cropStrawberry", "foodDough", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberrysaladItem, "cropStrawberry", "foodFruitsalad"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberryjuiceItem, "toolJuicer", "cropStrawberry"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatestrawberryItem, "toolSaucepan", "cropStrawberry", "foodChocolatebar"));
@@ -290,22 +294,22 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.trailmixItem, "listAllnut", "listAllnut", "foodRaisins", "foodChocolatebar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.trailmixItem, "foodRoastedpumpkinseeds", "foodRaisins", "foodChocolatebar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pbandjItem, "toolCuttingboard", "foodPeanutbutter", "foodGrapejelly", Items.bread));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peanutbuttercookiesItem, "toolBakeware", "foodPeanutbutter", "foodFlour", "listAllegg", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peanutbuttercookiesItem, "toolBakeware", "foodPeanutbutter", "foodFlour", "listAllegg", "listAllsugar"));
 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapejuiceItem, "toolJuicer", "cropGrape"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vinegarItem, "toolPot", "foodGrapejuice"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapejellyItem, "toolSaucepan", "cropGrape", Items.sugar));		
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapejellyItem, "toolSaucepan", "cropGrape", "listAllsugar"));		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapesaladItem, "cropGrape", "foodFruitsalad"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raisincookiesItem, "toolBakeware", "foodFlour", "listAllegg", Items.sugar, "foodRaisins"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raisincookiesItem, "toolBakeware", "foodFlour", "listAllegg", "listAllsugar", "foodRaisins"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.picklesItem, "toolPot", "cropCucumber", "foodSalt", "foodVinegar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.picklesItem, "toolPot", "cropCucumber", "dustSalt", "foodVinegar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.picklesItem, "toolPot", "cropCucumber", "itemSalt", "foodVinegar"));
 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cucumbersaladItem, "toolCuttingboard", "cropCucumber", "foodSpringsalad"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cucumbersoupItem, "toolPot", "cropCucumber", "foodStock", "listAllReplaceheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cucumbersoupItem, "toolPot", "cropCucumber", "foodStock", "listAllheavycream"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegetarianlettucewrapItem, "toolCuttingboard", "cropCucumber", "cropLettuce", "cropTomato"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.marinatedcucumbersItem, "toolPot", "cropCucumber", "cropOnion", Items.sugar, "foodVinegar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.marinatedcucumbersItem, "toolPot", "cropCucumber", "cropOnion", "listAllsugar", "foodVinegar"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.ricesoupItem, "toolPot", "cropRice", "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.friedriceItem, "toolSkillet", "cropRice", Items.carrot, "listAllegg", "cropOnion"));
@@ -314,10 +318,10 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.curryItem, "toolSaucepan", "cropRice", "dustSalt", "cropChilipepper", "foodCoconutmilk", "cropSpiceleaf"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.curryItem, "toolSaucepan", "cropRice", "itemSalt", "cropChilipepper", "foodCoconutmilk", "cropSpiceleaf"));
 
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.rainbowcurryItem, "toolSkillet", "cropRice", Blocks.red_flower, Blocks.yellow_flower, "flowerOrange", "flowerGreen", "flowerPurple", "flowerBlue"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.rainbowcurryItem, "toolSkillet", "cropRice", "flowerRed", "flowerYellow", "flowerOrange", "flowerGreen", "flowerPurple", "flowerBlue"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.refriedbeansItem, "toolSkillet", "cropBean", "cropOnion", "foodButter"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bakedbeansItem, "toolPot", "cropBean", "listAllporkcooked", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bakedbeansItem, "toolPot", "cropBean", "listAllporkcooked", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beansandriceItem, "toolPot", "cropBean", "cropRice", "cropOnion", "listAllporkcooked"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beansandriceItem, "toolPot", "cropBean", "cropRice", "cropBellpepper", "listAllporkcooked"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beansandriceItem, "toolPot", "cropBean", "cropRice", "cropChilipepper", "listAllporkcooked"));
@@ -332,35 +336,35 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.veggiestirfryItem, "toolSkillet", "cropBellpepper", Items.carrot, "cropRice", "cropOnion", "listAllmushroom"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.veggiestirfryItem, "toolSkillet", "cropBellpepper", Items.carrot, "cropRice", "cropOnion", "listAllmushroom"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.veggiestirfryItem, "toolSkillet", "cropBellpepper", Items.carrot, "cropRice", "cropOnion", "listAllmushroom"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grilledskewersItem, "toolCuttingboard", "cropBellpepper", "cropOnion", Items.carrot, Items.stick));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grilledskewersItem, "toolCuttingboard", "cropBellpepper", "cropOnion", Items.carrot, "stickWood"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.supremepizzaItem, "toolCuttingboard", "foodPizza", "cropBellpepper", "cropOnion", "cropSpiceleaf"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.omeletItem, "toolSkillet", "listAllegg", "cropBellpepper", "cropOnion"));
 	 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.hotwingsItem, "toolSkillet", "cropChilipepper", "listAllchickencooked", "foodButter"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chilipoppersItem, "toolBakeware", "cropChilipepper", "foodFlour", "foodCheese"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.extremechiliItem, "foodChili", "cropChilipepper"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chilichocolateItem, "toolMortarandpestle", "foodChocolatebar", "cropChilipepper"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chilichocolateItem, "toolMixingbowl", "foodChocolatebar", "cropChilipepper"));
 	 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.lemonaideItem, 1), "toolJuicer", "cropLemon"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.lemonbarItem, 1), "toolBakeware", "cropLemon", "foodDough", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.lemonbarItem, 1), "toolBakeware", "cropLemon", "foodDough", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.fishdinnerItem, 1), "toolSkillet", "cropLemon", "foodFlour", "listAllfishraw", "foodMayo"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.lemonsmoothieItem, 1), "toolJuicer", "cropLemon", Items.snowball));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.lemonmeringueItem, 1), "toolBakeware", "cropLemon", Items.sugar, "foodDough", "listAllReplaceheavycream"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.candiedlemonItem, 1), "toolSaucepan", "cropLemon", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.lemonmeringueItem, 1), "toolBakeware", "cropLemon", "listAllsugar", "foodDough", "listAllheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.candiedlemonItem, 1), "toolBakeware", "cropLemon", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.lemonchickenItem, 1), "toolBakeware", "cropLemon", "listAllchickenraw", "foodButter"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberrysmoothieItem, "toolJuicer", "cropBlueberry", Items.snowball));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberrypieItem, "toolBakeware", "cropBlueberry", "foodDough", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberrypieItem, "toolBakeware", "cropBlueberry", "foodDough", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberrymuffinItem, "toolBakeware", "cropBlueberry", "foodFlour", "listAllegg"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberryjuiceItem, "toolJuicer", "cropBlueberry"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pancakesItem, "toolSkillet", "foodFlour", "listAllegg", "listAllmilk"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberrypancakesItem, "cropBlueberry", "foodPancakes"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.cherryjuiceItem, 1), "toolJuicer", "cropCherry"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.cherrypieItem, 1), "toolBakeware", "cropCherry", "foodDough", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.cherrypieItem, 1), "toolBakeware", "cropCherry", "foodDough", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.chocolatecherryItem, 1), "toolSaucepan", "cropCherry", "foodChocolatebar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.cherrysmoothieItem, 1), "toolJuicer", "cropCherry", Items.snowball));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.cheesecakeItem, 1), "toolBakeware", "foodFlour", "listAllReplaceheavycream", Items.sugar, "listAllegg"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.cheesecakeItem, 1), "toolBakeware", "foodFlour", "listAllheavycream", "listAllsugar", "listAllegg"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.cherrycheesecakeItem, 1), "cropCherry", "foodCheesecake"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.stuffedeggplantItem, "toolBakeware", "cropEggplant", "cropOnion", "cropBellpepper", "foodButter", "listAllegg"));
@@ -370,9 +374,9 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberryicedteaItem, "cropTea", Items.snowball, "cropRaspberry"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chaiteaItem, "cropTea", "foodGroundcinnamon", "foodBlackpepper"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.espressoItem, "cropCoffee", "cropCoffee", "cropCoffee", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.espressoItem, "cropCoffee", "cropCoffee", "cropCoffee", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.coffeeconlecheItem, "foodEspresso", "listAllmilk", "foodGroundcinnamon"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mochaicecreamItem, "listAllReplaceicecream", "cropCoffee", "foodCocoapowder"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mochaicecreamItem, "toolMixingbowl", "listAllicecream", "cropCoffee", "foodCocoapowder"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pickledbeetsItem, "toolPot", "cropBeet", "foodVinegar", "foodSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pickledbeetsItem, "toolPot", "cropBeet", "foodVinegar", "dustSalt"));
@@ -383,11 +387,11 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bakedbeetsItem, "toolBakeware", "cropBeet", "foodButter", "foodBlackpepper"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.broccolimacItem, "toolPot", "cropBroccoli", "foodPasta", "foodCheese"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.broccolindipItem, "toolMixingbowl", "cropBroccoli", "cropOnion", "listAllReplaceheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.broccolindipItem, "toolMixingbowl", "cropBroccoli", "cropOnion", "listAllheavycream"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.creamedbroccolisoupItem, "toolPot", "cropBroccoli", Items.carrot, "foodFlour", "foodBlackpepper", "foodStock"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sweetpotatopieItem, "toolBakeware", "cropSweetpotato", "foodDough", "foodGroundcinnamon", "foodMarshmellows"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.candiedsweetpotatoesItem, "toolSaucepan", "cropSweetpotato", Items.sugar, "foodGroundcinnamon"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.candiedsweetpotatoesItem, "toolSaucepan", "cropSweetpotato", "listAllsugar", "foodGroundcinnamon"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mashedsweetpotatoesItem, "toolSaucepan", "cropSweetpotato", "foodButter"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.steamedpeasItem, "toolPot", "cropPeas", "listAllwater", "foodSalt"));
@@ -397,7 +401,7 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.splitpeasoupItem, "toolPot", "cropPeas", "listAllporkcooked", "foodBlackpepper", "foodStock"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pineappleupsidedowncakeItem, "toolBakeware", "cropPineapple", "foodDough", "cropCherry", "cropWalnut"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pineapplehamItem, "toolBakeware", "cropPineapple", "listAllporkraw", "cropCherry", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pineapplehamItem, "toolBakeware", "cropPineapple", "listAllporkraw", "cropCherry", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pineappleyogurtItem, "cropPineapple", "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.turnipsoupItem, "toolPot", "cropTurnip", Blocks.pumpkin, "foodButter", "foodStock"));
@@ -412,8 +416,8 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bakedturnipsItem, "toolBakeware", "cropTurnip", "foodButter", "itemSalt", "foodBlackpepper"));
 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gingerbreadItem, "toolBakeware", "cropGinger", "foodFlour", "foodButter", "listAllegg", "foodGroundcinnamon"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gingersnapsItem, "toolBakeware", "cropGinger", "foodFlour", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.candiedgingerItem, "toolSaucepan", "cropGinger", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gingersnapsItem, "toolBakeware", "cropGinger", "foodFlour", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.candiedgingerItem, "toolSaucepan", "cropGinger", "listAllsugar"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mustardItem, "toolJuicer", "cropMustard"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.softpretzelandmustardItem, "foodSoftpretzel", "foodMustard"));
@@ -450,8 +454,8 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.asparagussoupItem, "toolPot", "cropAsparagus", "cropOnion", "foodButter", "foodStock"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.walnutraisinbreadItem, "toolBakeware", "cropWalnut", "foodRaisins", "foodDough", "foodGroundcinnamon"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.candiedwalnutsItem, "toolSaucepan", "cropWalnut", "foodVanilla", "foodGroundcinnamon", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.brownieItem, "toolBakeware", "cropWalnut", "foodFlour", "listAllegg", "foodButter", Items.sugar, "foodCocoapowder", "foodVanilla"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.candiedwalnutsItem, "toolSaucepan", "cropWalnut", "foodVanilla", "foodGroundcinnamon", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.brownieItem, "toolBakeware", "cropWalnut", "foodFlour", "listAllegg", "foodButter", "listAllsugar", "foodCocoapowder", "foodVanilla"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.papayajuiceItem, "toolJuicer", "cropPapaya"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.papayasmoothieItem, "toolJuicer", "cropPapaya", Items.snowball));
@@ -462,16 +466,16 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.starfruityogurtItem, "cropStarfruit", "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.guacamoleItem, "toolCuttingboard", "cropAvocado", "cropChilipepper", "cropTomato", "cropOnion", "cropSpiceleaf"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.creamofavocadosoupItem, "toolPot", "cropAvocado", "listAllReplaceheavycream", "cropLime", "cropSpiceleaf", "foodStock"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.creamofavocadosoupItem, "toolPot", "cropAvocado", "listAllheavycream", "cropLime", "cropSpiceleaf", "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.avocadoburritoItem, "toolCuttingboard", "cropAvocado", "foodTortilla", "foodCheese", "listAllchickencooked"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.avocadoburritoItem, "toolCuttingboard", "cropAvocado", "foodTortilla", "foodCheese", "listAllporkcooked"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.poachedpearItem, "toolSaucepan", "cropPear", "foodVanilla", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.poachedpearItem, "toolSaucepan", "cropPear", "foodVanilla", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.fruitcrumbleItem, "toolBakeware", "listAllfruit", "foodGroundcinnamon", "foodFlour", "foodButter"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pearyogurtItem, "cropPear", "foodPlainyogurt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.plumyogurtItem, "cropPlum", "foodPlainyogurt"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bananasplitItem, "toolMixingbow", "cropBanana", "foodCocoapowder", "cropCherry", "listAllReplaceicecream", "cropStrawberry"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bananasplitItem, "toolMixingbowl", "cropBanana", "foodCocoapowder", "cropCherry", "listAllicecream", "cropStrawberry"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.banananutbreadItem, "toolBakeware", "cropBanana", "foodFlour", "cropWalnut", "listAllmilk", "foodSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.banananutbreadItem, "toolBakeware", "cropBanana", "foodFlour", "cropWalnut", "listAllmilk", "dustSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.banananutbreadItem, "toolBakeware", "cropBanana", "foodFlour", "cropWalnut", "listAllmilk", "itemSalt"));
@@ -486,17 +490,17 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.coconutyogurtItem, "cropCoconut", "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangejuiceItem, "toolJuicer", "cropOrange"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangechickenItem, "toolSaucepan", "toolMixingbowl", "cropOrange", "listAllchickenraw", Items.sugar, "cropRice", "cropBroccoli"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangechickenItem, "toolSaucepan", "cropOrange", "listAllchickenraw", "listAllsugar", "cropRice", "cropBroccoli"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangesmoothieItem, "toolJuicer", "cropOrange", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangeyogurtItem, "cropOrange", "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachjuiceItem, "toolJuicer", "cropPeach"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachcobblerItem, "toolBakeware", "cropPeach", Items.sugar, "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachcobblerItem, "toolBakeware", "cropPeach", "listAllsugar", "foodDough"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachsmoothieItem, "toolJuicer", "cropPeach", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachyogurtItem, "cropPeach", "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.limejuiceItem, "toolJuicer", "cropLime"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.keylimepieItem, "toolBakeware", "cropLime", "listAllReplaceheavycream", Items.sugar, "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.keylimepieItem, "toolBakeware", "cropLime", "listAllheavycream", "listAllsugar", "foodDough"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.limesmoothieItem, "toolJuicer", "cropLime", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.limeyogurtItem, "cropLime", "foodPlainyogurt"));
 		
@@ -510,15 +514,15 @@ public class PamFoodRecipes
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vanillayogurtItem, "foodVanilla", "foodPlainyogurt"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cinnamonrollItem, "toolBakeware", "foodGroundcinnamon", Items.sugar, "foodDough"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.frenchtoastItem, "toolSkillet", "foodGroundcinnamon", "foodToast", Items.sugar, "listAllegg"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cinnamonrollItem, "toolBakeware", "foodGroundcinnamon", "listAllsugar", "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.frenchtoastItem, "toolSkillet", "foodGroundcinnamon", "foodToast", "listAllsugar", "listAllegg"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.marshmellowsItem, "toolPot", Items.sugar, "listAllwater", "listAllegg"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.marshmellowsItem, "toolPot", "listAllsugar", "listAllwater", "listAllegg"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.donutItem, "toolPot", "foodDough", "foodOliveoil"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatedonutItem, "foodDonut", "foodChocolatebar"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.powdereddonutItem, "foodDonut", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.powdereddonutItem, "foodDonut", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.jellydonutItem, "foodDonut", "foodGrapejelly"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.frosteddonutItem, "foodDonut", Items.sugar, new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2), new ItemStack(Items.dye, 1, 11)));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.frosteddonutItem, "foodDonut", "listAllsugar", new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2), new ItemStack(Items.dye, 1, 11)));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cactussoupItem, "toolPot", Blocks.cactus, "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.wafflesItem, "toolSkillet", "foodFlour", "listAllegg", "listAllmilk", "foodButter"));
@@ -527,14 +531,14 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.softpretzelItem, "toolBakeware", "foodDough", "foodButter", "dustSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.softpretzelItem, "toolBakeware", "foodDough", "foodButter", "itemSalt"));
 
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.jellybeansItem, "toolSaucepan", Items.sugar, new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 11)));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.jellybeansItem, "toolSaucepan", "listAllsugar", new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 11)));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.biscuitItem, "toolBakeware", "foodDough", "foodButter"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.creamcookieItem, "toolBakeware", "foodDough", "listAllReplaceheavycream", Items.sugar, "foodCocoapowder"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.jaffaItem, "toolBakeware", "listAllegg", Items.sugar, "foodFlour", "foodChocolatebar", "cropOrange"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.creamcookieItem, "toolBakeware", "foodDough", "listAllheavycream", "listAllsugar", "foodCocoapowder"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.jaffaItem, "toolBakeware", "listAllegg", "listAllsugar", "foodFlour", "foodChocolatebar", "cropOrange"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.friedchickenItem, "toolPot", "listAllchickenraw", "foodFlour", "cropSpiceleaf", "foodBlackpepper", "foodOliveoil"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatesprinklecakeItem, "toolBakeware", "foodCocoapowder", Items.sugar, "foodDough", new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2), new ItemStack(Items.dye, 1, 11)));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.redvelvetcakeItem, "toolBakeware", "listAllmilk", "foodFlour", "listAllReplaceheavycream", Items.sugar, "listAllegg", new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 1)));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatesprinklecakeItem, "toolBakeware", "foodCocoapowder", "listAllsugar", "foodDough", new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2), new ItemStack(Items.dye, 1, 11)));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.redvelvetcakeItem, "toolBakeware", "listAllmilk", "foodFlour", "listAllheavycream", "listAllsugar", "listAllegg", new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 1)));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.footlongItem, "toolCuttingboard", Items.bread, "listAllbeefcooked", "cropLettuce", "cropTomato", "foodMayo"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.footlongItem, "toolCuttingboard", Items.bread, "listAllchickencooked", "cropLettuce", "cropTomato", "foodMayo"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.footlongItem, "toolCuttingboard", Items.bread, "listAllporkcooked", "cropLettuce", "cropTomato", "foodMayo"));
@@ -547,24 +551,24 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolateyogurtItem, "foodCocoapowder", "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberryjuiceItem, "toolJuicer", "cropBlackberry"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberrycobblerItem, "cropBlackberry", "toolBakeware", Items.sugar, "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberrycobblerItem, "cropBlackberry", "toolBakeware", "listAllsugar", "foodDough"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberrysmoothieItem, "toolJuicer", "cropBlackberry", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberryyogurtItem, "cropBlackberry", "foodPlainyogurt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatemilkItem, "listAllmilk", "foodCocoapowder"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pumpkinyogurtItem, Blocks.pumpkin, "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberryjuiceItem, "toolJuicer", "cropRaspberry"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberrypieItem, "cropRaspberry", "toolBakeware", Items.sugar, "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberrypieItem, "cropRaspberry", "toolBakeware", "listAllsugar", "foodDough"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberrysmoothieItem, "toolJuicer", "cropRaspberry", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberryyogurtItem, "cropRaspberry", "foodPlainyogurt"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cinnamonsugardonutItem, "foodDonut", Items.sugar, "foodGroundcinnamon"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cinnamonsugardonutItem, "foodDonut", "listAllsugar", "foodGroundcinnamon"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.melonyogurtItem, Items.melon, "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.kiwijuiceItem, "toolJuicer", "cropKiwi"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.kiwismoothieItem, "toolJuicer", "cropKiwi", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.kiwiyogurtItem, "cropKiwi", "foodPlainyogurt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.plainyogurtItem, 4, 0), "listAllmilk", Items.leather));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.appleyogurtItem, Items.apple, "foodPlainyogurt"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.appleyogurtItem, "cropApple", "foodPlainyogurt"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.saltedsunflowerseedsItem, "cropSunflower", "foodSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.saltedsunflowerseedsItem, "cropSunflower", "dustSalt"));
@@ -574,13 +578,13 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sunflowerwheatrollsItem, "toolBakeware", "cropSunflower", "foodFlour", "listAllegg", "dustSalt", "foodOliveoil"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sunflowerwheatrollsItem, "toolBakeware", "cropSunflower", "foodFlour", "listAllegg", "itemSalt", "foodOliveoil"));
 
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sunflowerbroccolisaladItem, "toolCuttingboard", "cropSunflower", "cropBroccoli", "foodMayo", Items.sugar, "listAllporkcooked"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sunflowerbroccolisaladItem, "toolCuttingboard", "cropSunflower", "cropBroccoli", "foodMayo", "listAllsugar", "listAllporkcooked"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberryjuiceItem, "toolJuicer", "cropCranberry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberrysauceItem, "toolSaucepan", "cropCranberry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberrybarItem, "toolBakeware", "cropCranberry", Items.sugar, "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberryjuiceItem, "toolJuicer", "cropCranberry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberrysauceItem, "toolPot", "cropCranberry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberrybarItem, "toolBakeware", "cropCranberry", "listAllsugar", "foodDough"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peppermintItem, "toolSaucepan", "cropSpiceleaf", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peppermintItem, "toolSaucepan", "cropSpiceleaf", "listAllsugar"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cactusfruitjuiceItem, "toolJuicer", "cropCactusfruit"));
 		
@@ -591,11 +595,11 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.oliveoilItem, "toolJuicer", "cropSunflower"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.oliveoilItem, "toolJuicer", "cropWalnut"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.baklavaItem, "toolBakeware", "foodDough", "cropWalnut", "cropCinnamon", "foodButter", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gummybearsItem, "toolSaucepan", Items.sugar, new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2)));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.baklavaItem, "toolBakeware", "foodDough", "cropWalnut", "cropCinnamon", "foodButter", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gummybearsItem, "toolSaucepan", "listAllsugar", new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2)));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.baconmushroomburgerItem, "foodBaconcheeseburger", "listAllmushroom"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.baconmushroomburgerItem, "foodBaconcheeseburger", "cropWhitemushroom"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.fruitpunchItem, "toolJuicer", "listAllfruit", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.fruitpunchItem, "toolJuicer", "listAllfruit", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.meatystewItem, "toolPot", "listAllmeatraw", "foodFlour", "foodStock"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mixedsaladItem, "toolCuttingboard", "listAllveggie", "listAllveggie", "foodSaladdressing"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pinacoladaItem, "toolJuicer", "cropCoconut", "cropPineapple"));
@@ -604,29 +608,29 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.saladdressingItem, "toolJuicer", "foodOliveoil", "itemSalt", "foodVinegar"));
 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.saladdressingItem, "toolJuicer", "foodMayo", "cropSpiceleaf", "cropSpiceleaf"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.shepardspieItem, "toolBakeware", "listAllmeat", Items.potato, Items.carrot, "foodDough", "cropPeas"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.eggnogItem, "toolJuicer", "listAllegg", "foodGroundnutmeg", "cropCinnamon", "listAllReplaceheavycream"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.custardItem, "toolSaucepan", "listAllegg", "foodGroundnutmeg", "cropCinnamon", "listAllReplaceheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.shepardspieItem, "toolBakeware", "listAllmeatraw", Items.potato, Items.carrot, "foodDough", "cropPeas"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.eggnogItem, "toolJuicer", "listAllegg", "foodGroundnutmeg", "cropCinnamon", "listAllheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.custardItem, "toolSaucepan", "listAllegg", "foodGroundnutmeg", "cropCinnamon", "listAllheavycream"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sushiItem, "toolCuttingboard", "listAllfishraw", "cropSeaweed", "cropRice"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gardensoupItem, "toolPot", "foodStock", "listAllveggie", "listAllveggie"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applejellyItem, "toolSaucepan", Items.apple, Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberryjellyItem, "toolSaucepan", "cropBlackberry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberryjellyItem, "toolSaucepan", "cropBlueberry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cherryjellyItem, "toolSaucepan", "cropCherry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberryjellyItem, "toolSaucepan", "cropCranberry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.kiwijellyItem, "toolSaucepan", "cropKiwi", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lemonjellyItem, "toolSaucepan", "cropLemon", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.limejellyItem, "toolSaucepan", "cropLime", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mangojellyItem, "toolSaucepan", "cropMango", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangejellyItem, "toolSaucepan", "cropOrange", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.papayajellyItem, "toolSaucepan", "cropPapaya", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachjellyItem, "toolSaucepan", "cropPeach", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pomegranatejellyItem, "toolSaucepan", "cropPomegranate", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberryjellyItem, "toolSaucepan", "cropRaspberry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.starfruitjellyItem, "toolSaucepan", "cropStarfruit", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberryjellyItem, "toolSaucepan", "cropStrawberry", Items.sugar));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.watermelonjellyItem, "toolSaucepan", Items.melon, Items.melon, Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applejellyItem, "toolSaucepan", "cropApple", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberryjellyItem, "toolSaucepan", "cropBlackberry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blueberryjellyItem, "toolSaucepan", "cropBlueberry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cherryjellyItem, "toolSaucepan", "cropCherry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cranberryjellyItem, "toolSaucepan", "cropCranberry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.kiwijellyItem, "toolSaucepan", "cropKiwi", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lemonjellyItem, "toolSaucepan", "cropLemon", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.limejellyItem, "toolSaucepan", "cropLime", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mangojellyItem, "toolSaucepan", "cropMango", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangejellyItem, "toolSaucepan", "cropOrange", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.papayajellyItem, "toolSaucepan", "cropPapaya", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachjellyItem, "toolSaucepan", "cropPeach", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pomegranatejellyItem, "toolSaucepan", "cropPomegranate", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberryjellyItem, "toolSaucepan", "cropRaspberry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.starfruitjellyItem, "toolSaucepan", "cropStarfruit", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberryjellyItem, "toolSaucepan", "cropStrawberry", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.watermelonjellyItem, "toolSaucepan", Items.melon, Items.melon, "listAllsugar"));
 	
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.applejellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodApplejelly", Items.bread));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.blackberryjellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodBlackberryjelly", Items.bread));
@@ -646,19 +650,19 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberryjellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodStrawberryjelly", Items.bread));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.watermelonjellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodWatermelonjelly", Items.bread));
 	
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cherrysodaItem, "toolPot", "foodBubblywater", Items.sugar, "foodCherryjuice"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.colasodaItem, "toolPot", "foodBubblywater", Items.sugar, "cropSpiceleaf"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gingersodaItem, "toolPot", "foodBubblywater", Items.sugar, "cropGinger"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapesodaItem, "toolPot", "foodBubblywater", Items.sugar, "foodGrapejuice"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lemonlimesodaItem, "toolPot", "foodBubblywater", Items.sugar, "cropLemon", "foodLimejuice"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangesodaItem, "toolPot", "foodBubblywater", Items.sugar, "foodOrangejuice"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.rootbeersodaItem, "toolPot", "foodBubblywater", Items.sugar, "cropEdibleroot"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberrysodaItem, "toolPot", "foodBubblywater", Items.sugar, "foodStrawberryjuice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cherrysodaItem, "toolPot", "foodBubblywater", "listAllsugar", "foodCherryjuice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.colasodaItem, "toolPot", "foodBubblywater", "listAllsugar", "cropSpiceleaf"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gingersodaItem, "toolPot", "foodBubblywater", "listAllsugar", "cropGinger"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapesodaItem, "toolPot", "foodBubblywater", "listAllsugar", "foodGrapejuice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lemonlimesodaItem, "toolPot", "foodBubblywater", "listAllsugar", "cropLemon", "foodLimejuice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.orangesodaItem, "toolPot", "foodBubblywater", "listAllsugar", "foodOrangejuice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.rootbeersodaItem, "toolPot", "foodBubblywater", "listAllsugar", "cropEdibleroot"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberrysodaItem, "toolPot", "foodBubblywater", "listAllsugar", "foodStrawberryjuice"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.caramelicecreamItem, "toolMixingbowl", "listAllReplaceicecream", "foodCaramel"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mintchocolatechipicemcreamItem, "toolMixingbowl", "listAllReplaceicecream", "cropSpiceleaf", "foodChocolatebar"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberryicecreamItem, "toolMixingbowl", "listAllReplaceicecream", "cropStrawberry"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vanillaicecreamItem, "toolMixingbowl", "listAllReplaceicecream", "foodVanilla"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.caramelicecreamItem, "toolMixingbowl", "listAllicecream", "foodCaramel"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mintchocolatechipicemcreamItem, "toolMixingbowl", "listAllicecream", "cropSpiceleaf", "foodChocolatebar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberryicecreamItem, "toolMixingbowl", "listAllicecream", "cropStrawberry"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vanillaicecreamItem, "toolMixingbowl", "listAllicecream", "foodVanilla"));
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.ediblerootItem, "toolCuttingboard", "cropSpiceleaf"));
 	
@@ -667,7 +671,7 @@ public class PamFoodRecipes
 		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.oldworldveggiesoupItem, "toolPot", "foodStock", "cropOnion", "cropPeas", "cropBarley"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.spicebunItem, "toolBakeware", "foodFlour", "listAllmilk", "foodGroundnutmeg", "foodGroundcinnamon", "foodRaisins"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gingeredrhubarbtartItem, "toolBakeware", "foodDough", "cropRhubarb", "cropGinger", Items.sugar, "listAllegg"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gingeredrhubarbtartItem, "toolBakeware", "foodDough", "cropRhubarb", "cropGinger", "listAllsugar", "listAllegg"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lambbarleysoupItem, "toolPot", "foodStock", "listAllmuttonraw", "cropOnion", Items.carrot, "cropBarley"));		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.honeylemonlambItem, "toolBakeware", "listAllmuttonraw", "cropLemon", "foodMustard", "foodHoneydrop"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.honeylemonlambItem, "toolBakeware", "listAllmuttonraw", "cropLemon", "foodMustard", "dropHoney"));
@@ -676,49 +680,52 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beefjerkyItem, "listAllbeefraw", "dustSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beefjerkyItem, "listAllbeefraw", "itemSalt"));
 
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.plumjuiceItem, "toolJuicer", "cropPlum"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pearjuiceItem, "toolJuicer", "cropPear"));
+		
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.ovenroastedcauliflowerItem, "toolBakeware", "cropCauliflower", "foodOliveoil", "cropGarlic", "cropLemon"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.leekbaconsoupItem, "toolPot", "cropLeek", "listAllporkcooked", Items.potato, "listAllReplaceheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.leekbaconsoupItem, "toolPot", "cropLeek", "listAllporkcooked", Items.potato, "listAllheavycream"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.herbbutterparsnipsItem, "toolSaucepan", "cropParsnip", "foodButter", "cropSpiceleaf"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.scallionbakedpotatoItem, Items.baked_potato, "cropScallion", "listAllReplaceheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.scallionbakedpotatoItem, Items.baked_potato, "cropScallion", "listAllheavycream"));
 	
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bamboosteamedriceItem, "toolPot", "cropRice", "cropBamboo"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bamboosteamedriceItem, "toolPot", "cropRice", "cropBambooshoot"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sweetpotatosouffleItem, "toolBakeware", "cropSweetpotato", "cropPecan", "foodDough", "foodButter"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cashewchickenItem, "toolSaucepan", "listAllchickenraw", "cropCashew", "cropRice", "listAllpepper"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.apricotjuiceItem, "toolJuicer", "cropApricot"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.apricotyogurtItem, "cropApricot", "foodPlainyogurt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.apricotglazedporkItem, "listAllporkcooked", "foodApricotjelly" ));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.apricotjellyItem, "toolSaucepan", "cropApricot", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.apricotjellyItem, "toolSaucepan", "cropApricot", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.apricotjellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodApricotjelly", Items.bread));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.apricotsmoothieItem, "toolJuicer", "cropApricot", Items.snowball));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figbarItem, "toolBakeware", "cropFig", Items.sugar, "foodDough"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figjellyItem, "toolSaucepan", "cropFig", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figbarItem, "toolBakeware", "cropFig", "listAllsugar", "foodDough"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figjellyItem, "toolSaucepan", "cropFig", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figjellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodFigjelly", Items.bread));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figsmoothieItem, "toolJuicer", "cropFig", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figyogurtItem, "cropFig", "foodPlainyogurt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.figjuiceItem, "toolJuicer", "cropFig"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruitjuiceItem, "toolJuicer", "cropGrapefruit"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruitjellyItem, "toolSaucepan", "cropGrapefruit", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruitjellyItem, "toolSaucepan", "cropGrapefruit", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruitjellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodGrapefruitjelly", Items.bread));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruitsmoothieItem, "toolJuicer", "cropGrapefruit", Items.snowball));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruityogurtItem, "cropGrapefruit", "foodPlainyogurt"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruitsodaItem, "toolPot", "foodBubblywater", Items.sugar, "foodGrapefruitjuice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.grapefruitsodaItem, "toolPot", "foodBubblywater", "listAllsugar", "foodGrapefruitjuice"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.citrussaladItem, "toolCuttingboard", "listAllcitrus", "cropLettuce"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pecanpieItem, "toolBakeware", "cropPecan", "foodDough", Items.sugar, "foodButter"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pralinesItem, "toolSaucepan", "cropPecan", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pecanpieItem, "toolBakeware", "cropPecan", "foodDough", "listAllsugar", "foodButter"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pralinesItem, "toolSaucepan", "cropPecan", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.persimmonjuiceItem, "toolJuicer", "cropPersimmon"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.persimmonyogurtItem, "cropPersimmon", "foodPlainyogurt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.persimmonsmoothieItem, "toolJuicer", "cropPersimmon", Items.snowball));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.persimmonjellyItem, "toolSaucepan", "cropPersimmon", Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.persimmonjellyItem, "toolSaucepan", "cropPersimmon", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.persimmonjellysandwichItem, "toolCuttingboard", "foodPeanutbutter", "foodPersimmonjelly", Items.bread));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pistachiobakedsalmonItem, "toolBakeware", "cropPistachio", Items.fish));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pistachiobakedsalmonItem, "toolBakeware", "cropPistachio", "salmonRaw"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.baconwrappeddatesItem, "toolBakeware", "cropDate", "listAllporkcooked"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.datenutbreadItem, "toolBakeware", "cropDate", "foodDough", "listAllnut"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.maplesyruppancakesItem, "foodPancakes", "cropMaplesyrup"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.maplesyrupwafflesItem, "foodWaffles", "cropMaplesyrup"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.maplesausageItem, "listAllbeefraw", "cropSpiceleaf", "cropMaplesyrup"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mapleoatmealItem, "toolMixingbow", "cropOats", "cropMaplesyrup"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachesandcreamoatmealItem, "toolMixingbow", "cropOats", "cropPeach", "listAllReplaceheavycream"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cinnamonappleoatmealItem, "toolMixingbowl", "cropOats", "foodGroundcinnamon", Items.apple)); 
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mapleoatmealItem, "toolMixingbowl", "cropOats", "cropMaplesyrup"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.peachesandcreamoatmealItem, "toolMixingbowl", "cropOats", "cropPeach", "listAllheavycream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cinnamonappleoatmealItem, "toolMixingbowl", "cropOats", "foodGroundcinnamon", "cropApple")); 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.maplecandiedbaconItem, "toolBakeware", "listAllporkcooked", "cropMaplesyrup"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.toastsandwichItem, "foodToast", "foodToast"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.potatoandcheesepirogiItem, "toolSkillet", "foodDough", "cropPotato", "foodCheese"));
@@ -728,49 +735,49 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lavendershortbreadItem, "toolBakeware", "dyePurple", "foodDough"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beefwellingtonItem, "listAllbeefraw", "foodDough", "listAllmushroom", "cropSpinach"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.epicbaconItem, "listAllporkcooked", "dyeRed", "dyeOrange", "dyeYellow", "dyeGreen", "dyeBlue", "dyePurple", "dyeMagenta"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.manjuuItem, "toolMortarandpestle", Items.sugar, "cropRice", "cropBean"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.manjuuItem, "toolMixingbowl", "listAllsugar", "cropRice", "cropBean"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chickengumboItem, "toolPot", "cropOkra", "listAllchickeraw", "cropCelery", "cropOnion", ItemRegistry.stockItem, "cropSpiceleaf", "cropBellpepper"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.generaltsochickenItem, "toolSkillet", "listAllchickenraw", "cropBroccoli", Items.sugar, ItemRegistry.flourItem, "cropChilipepper", "cropRice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chickengumboItem, "toolPot", "cropOkra", "listAllchickenraw", "cropCelery", "cropOnion", "foodStock", "cropSpiceleaf", "cropBellpepper"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.generaltsochickenItem, "toolSkillet", "listAllchickenraw", "cropBroccoli", "listAllsugar", "foodFlour", "cropChilipepper", "cropRice"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.californiarollItem, "toolCuttingboard", "listAllfishraw", "cropAvocado", "cropCucumber", "cropSeaweed", "cropRice"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.futomakiItem, "toolCuttingboard", ItemRegistry.boiledeggItem, "cropCucumber", "cropWintersquash", "cropRadish", "cropSeaweed", "cropGinger", "cropRice"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beansontoastItem, "toolCuttingboard", ItemRegistry.toastItem, ItemRegistry.butterItem, ItemRegistry.bakedbeansItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegemiteItem, "toolPot", Items.sugar, "cropBarley", "listAllwater", "cropSpiceleaf"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.honeycombchocolatebarItem, "toolSaucepan", ItemRegistry.chocolatebarItem, ItemRegistry.honeycombItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cherrycoconutchocolatebarItem, "toolSaucepan", ItemRegistry.chocolatebarItem, ItemRegistry.cherryItem, ItemRegistry.toastedcoconutItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.fairybreadItem, "toolBakeware", Items.bread, ItemRegistry.butterItem, "dyeRed", "dyeGreen", "dyeYellow"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lamingtonItem, "toolBakeware", ItemRegistry.doughItem, ItemRegistry.chocolatebarItem, ItemRegistry.toastedcoconutItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.timtamItem, "toolBakeware", Items.sugar, ItemRegistry.flourItem, "listAllmilk", ItemRegistry.chocolatebarItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.meatpieItem, "toolBakeware", "listAllbeefraw", ItemRegistry.doughItem, "cropOnion", "cropGarlic", ItemRegistry.blackpepperItem, ItemRegistry.stockItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chikorollItem, "toolPot", ItemRegistry.oliveoilItem, ItemRegistry.doughItem, "listAllchickencooked", "cropCarrot", "cropCabbage", "cropLeek", "cropOnion"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", ItemRegistry.flourItem, "listAllmilk", "foodSalt", ItemRegistry.butterItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", ItemRegistry.flourItem, "listAllmilk", "oreSalt", ItemRegistry.butterItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", ItemRegistry.flourItem, "listAllmilk", "dustSalt", ItemRegistry.butterItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", ItemRegistry.flourItem, "listAllmilk", "itemSalt", ItemRegistry.butterItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beetburgerItem, "toolCuttingboard", "listAllbeefcooked", "cropBeet", ItemRegistry.friedeggItem, "listAllporkcooked", "cropPineapple", ItemRegistry.toastItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pavlovaItem, "toolBakeware", Items.egg, Items.sugar, "cropLemon", ItemRegistry.heavycreamItem, "cropStrawberry"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pavlovaItem, "toolBakeware", Items.egg, Items.sugar, "cropLemon", "listAllReplaceheavycream", "cropStrawberry"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", ItemRegistry.vinegarItem, "foodSalt", "cropSpiceleaf", "cropCucumber"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", ItemRegistry.vinegarItem, "oreSalt", "cropSpiceleaf", "cropCucumber"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", ItemRegistry.vinegarItem, "dustSalt", "cropSpiceleaf", "cropCucumber"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", ItemRegistry.vinegarItem, "itemSalt", "cropSpiceleaf", "cropCucumber"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mcpamItem, "toolCuttingboard", "listAllbeefcooked", "cropLettuce", ItemRegistry.picklesItem, "cropOnion", ItemRegistry.toastItem, ItemRegistry.saladdressingItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mcpamItem, "toolCuttingboard", "listAllbeefcooked", "cropLettuce", ItemRegistry.gherkinItem, "cropOnion", ItemRegistry.toastItem, ItemRegistry.saladdressingItem));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.futomakiItem, "toolCuttingboard", "foodBoiledegg", "cropCucumber", "cropWintersquash", "cropRadish", "cropSeaweed", "cropGinger", "cropRice"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beansontoastItem, "toolCuttingboard", "foodToast", "foodButter", "foodBakedbeans"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegemiteItem, "toolPot", "listAllsugar", "cropBarley", "listAllwater", "cropSpiceleaf"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.honeycombchocolatebarItem, "toolSaucepan", "foodChocolatebar", "materialHoneycomb"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cherrycoconutchocolatebarItem, "toolSaucepan", "foodChocolatebar", "cropCherry", "foodToastedcoconut"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.fairybreadItem, "toolBakeware", Items.bread, "foodButter", "dyeRed", "dyeGreen", "dyeYellow"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lamingtonItem, "toolBakeware", "foodDough", "foodChocolatebar", "foodToastedcoconut"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.timtamItem, "toolBakeware", "listAllsugar", "foodFlour", "listAllmilk", "foodChocolatebar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.meatpieItem, "toolBakeware", "listAllbeefraw", "foodDough", "cropOnion", "cropGarlic", "foodBlackpepper", "foodStock"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chikorollItem, "toolPot", "foodOliveoil", "foodDough", "listAllchickencooked", "cropCarrot", "cropCabbage", "cropLeek", "cropOnion"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", "foodFlour", "listAllmilk", "foodSalt", "foodButter"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", "foodFlour", "listAllmilk", "oreSalt", "foodButter"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", "foodFlour", "listAllmilk", "dustSalt", "foodButter"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.damperItem, "toolBakeware", "foodFlour", "listAllmilk", "itemSalt", "foodButter"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.beetburgerItem, "toolCuttingboard", "listAllbeefcooked", "cropBeet", "foodFriedegg", "listAllporkcooked", "cropPineapple", "foodToast"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pavlovaItem, "toolBakeware", "listAllegg", "listAllsugar", "cropLemon", "listAllheavycream", "cropStrawberry"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pavlovaItem, "toolBakeware", "listAllegg", "listAllsugar", "cropLemon", "listAllheavycream", "cropStrawberry"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", "foodVinegar", "foodSalt", "cropSpiceleaf", "cropCucumber"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", "foodVinegar", "oreSalt", "cropSpiceleaf", "cropCucumber"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", "foodVinegar", "dustSalt", "cropSpiceleaf", "cropCucumber"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.gherkinItem, "toolPot", "foodVinegar", "itemSalt", "cropSpiceleaf", "cropCucumber"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mcpamItem, "toolCuttingboard", "listAllbeefcooked", "cropLettuce", "foodPickles", "cropOnion", "foodToast", "foodSaladdressing"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mcpamItem, "toolCuttingboard", "listAllbeefcooked", "cropLettuce", "foodGherkin", "cropOnion", "foodToast", "foodSaladdressing"));
 
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.ceasarsaladItem, "toolMixingbowl", "cropLettuce", ItemRegistry.toastItem, ItemRegistry.cheeseItem, "cropGarlic", ItemRegistry.blackpepperItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chaoscookieItem, "toolBakeware", ItemRegistry.flourItem, ItemRegistry.chocolatebarItem, new ItemStack(Items.dye, 1, 5)));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatebaconItem, "toolSaucepan", "listAllporkcooked", ItemRegistry.chocolatebarItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lambkebabItem, "toolCuttingboard", "listAllmuttoncooked", "cropOnion", "cropBellpepper", Items.stick));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.nutellaItem, "toolSaucepan", ItemRegistry.chocolatebarItem, ItemRegistry.groundnutmegItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.snickersbarItem, "toolSaucepan", ItemRegistry.chocolatebarItem, "cropPeanut", ItemRegistry.oliveoilItem));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.spinachpieItem, "toolBakeware", ItemRegistry.doughItem, "cropSpinach", ItemRegistry.cheeseItem, ItemRegistry.toastItem));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.ceasarsaladItem, "toolMixingbowl", "cropLettuce", "foodToast", "foodCheese", "cropGarlic", "foodBlackpepper"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chaoscookieItem, "toolBakeware", "foodFlour", "foodChocolatebar", new ItemStack(Items.dye, 1, 5)));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatebaconItem, "toolSaucepan", "listAllporkcooked", "foodChocolatebar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lambkebabItem, "toolCuttingboard", "listAllmuttoncooked", "cropOnion", "cropBellpepper", "stickWood"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.nutellaItem, "toolSaucepan", "foodChocolatebar", "foodGroundnutmeg"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.snickersbarItem, "toolSaucepan", "foodChocolatebar", "cropPeanut", "foodOliveoil"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.spinachpieItem, "toolBakeware", "foodDough", "cropSpinach", "foodCheese", "foodToast"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.steamedspinachItem, "toolPot", "cropSpinach", "listAllwater"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegemiteontoastItem, "toolCuttingboard", ItemRegistry.vegemiteItem, ItemRegistry.toastItem));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.vegemiteontoastItem, "toolCuttingboard", "foodVegemite", "foodToast"));
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.holidaycakeItem, "toolBakeware", Items.egg, Items.sugar, "cropCherry", ItemRegistry.heavycreamItem, "cropSpiceleaf"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.holidaycakeItem, "toolBakeware", "listAllegg", "listAllsugar", "cropCherry", "listAllheavycream", "cropSpiceleaf"));
 
 		
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.appleciderItem, "toolPot", Items.apple, Items.sugar));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.appleciderItem, "toolPot", "cropApple", "listAllsugar"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bangersandmashItem, "toolSkillet", "foodPorksausage", "foodMashedpotatoes"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.batteredsausageItem, "toolPot", "foodPorksausage", "foodBatter"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.batterItem, "toolMixingbowl", "foodFlour", "listAllegg"));
@@ -779,10 +786,10 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chorizoItem, "toolCuttingboard", "listAllporkcooked", "cropSpiceleaf", "cropGarlic", "itemSalt"));
 
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.coleslawItem, "toolMixingbowl", "cropCabbage", "cropCarrot", "foodMayo", "foodBlackpepper"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.energydrinkItem, "toolPot", "foodBubblywater", Items.sugar, Items.redstone));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.energydrinkItem, "toolPot", "foodBubblywater", "listAllsugar", Items.redstone));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.friedonionsItem, "toolPot", "cropOnion", "foodOliveoil"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.meatfeastpizzaItem, "toolPot", "foodPizza", "foodPepperoni", "foodPorksausage", Items.cooked_beef, Items.cooked_chicken));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mincepieItem, "toolBakeware", Items.cooked_beef, "listAllfruit", "listAllnut", ItemRegistry.doughItem, ItemRegistry.butterItem));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.meatfeastpizzaItem, "toolPot", "foodPizza", "foodPepperoni", "foodPorksausage", "listAllbeefcooked", Items.cooked_chicken));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.mincepieItem, "toolBakeware", "listAllbeefcooked", "listAllfruit", "listAllnut", "foodDough", "foodButter"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.onionhamburgerItem, "toolCuttingboard", "foodHamburger", "foodFriedonions"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pepperoniItem, "toolCuttingboard", "listAllporkcooked", "cropSpiceleaf", "cropBellpepper", "foodSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pepperoniItem, "toolCuttingboard", "listAllporkcooked", "cropSpiceleaf", "cropBellpepper", "dustSalt"));
@@ -793,9 +800,29 @@ public class PamFoodRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.porksausageItem, "toolCuttingboard", "listAllporkcooked", "cropSpiceleaf", "foodSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.porksausageItem, "toolCuttingboard", "listAllporkcooked", "cropSpiceleaf", "dustSalt"));
 		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.porksausageItem, "toolCuttingboard", "listAllporkcooked", "cropSpiceleaf", "itemSalt"));
-		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberrytrifleItem, "toolBakeware", "cropRaspberry", "listAllReplaceheavycream", "foodVanilla", ItemRegistry.doughItem));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.raspberrytrifleItem, "toolBakeware", "cropRaspberry", "listAllheavycream", "foodVanilla", "foodDough"));
 
-
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.pumpkincheesecakeItem, 1), Blocks.pumpkin, "foodCheesecake"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pumpkinmuffinItem, "toolBakeware", Blocks.pumpkin, "foodFlour", "listAllegg"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.suaderoItem, "toolCuttingboard", "listAllbeefcooked", "foodOliveoil"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.randomtacoItem, "toolCuttingboard", "listAllbeefcooked", "cropOnion", "foodCheese", "cropAvocado", "cropSpiceleaf", "foodLimejuice", "foodTortilla"));
+	
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.strawberrymilkshakeItem, "toolJuicer", "listAllmilk", "cropStrawberry", Items.snowball));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.chocolatemilkshakeItem, "toolJuicer", "listAllmilk", "foodCocoapowder", Items.snowball));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bananamilkshakeItem, "toolJuicer", "listAllmilk", "cropBanana", Items.snowball));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cornflakesItem, "toolMixingbowl", "listAllmilk", "cropCorn"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.coleslawburgerItem, "toolCuttingboard", "foodHamburger", "foodColeslaw"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.roastchickenItem, "toolBakeware", "listAllchickenraw", "foodSalt", "foodBlackpepper"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.roastpotatoesItem, "toolBakeware", "cropPotato", "foodSalt", "foodBlackpepper"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.sundayroastItem, "toolBakeware", "foodRoastchicken", "foodRoastpotatoes", "listAllgreenveggie"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.bbqpulledporkItem, "toolCuttingboard", "listAllporkcooked", "foodToast", "cropTomato", "cropSpiceleaf"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.lambwithmintsauceItem, "toolBakeware", "listAllmuttonraw", "cropSpiceleaf", "foodVinegar", "listAllsugar"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.steakandchipsItem, "toolSkillet", "listAllbeefraw", "foodFries"));
+		
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.cherryicecreamItem, "toolMixingbowl", "listAllicecream", "cropCherry"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.pistachioicecreamItem, "toolMixingbowl", "listAllicecream", "cropPistachio"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.neapolitanicecreamItem, 3), "foodChocolateicecream", "foodStrawberryicecream", "foodVanillaicecream"));
+		CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.spumoniicecreamItem, 3), "foodCherryicecream", "foodPistachioicecream", "foodVanillaicecream"));
 	}
 	
 }

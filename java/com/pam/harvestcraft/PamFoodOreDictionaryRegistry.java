@@ -2,6 +2,7 @@ package com.pam.harvestcraft;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -12,6 +13,10 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("listAllveggie", Items.carrot);
 		OreDictionary.registerOre("listAllveggie", Items.potato);
 		OreDictionary.registerOre("listAllveggie", Blocks.pumpkin);
+		
+		OreDictionary.registerOre("cropCarrot", Items.carrot);
+		OreDictionary.registerOre("cropPotato", Items.potato);
+		OreDictionary.registerOre("cropPumpkin", Blocks.pumpkin);
 		
 		OreDictionary.registerOre("listAllseed", Items.wheat_seeds);
 		OreDictionary.registerOre("listAllseed", Items.pumpkin_seeds);
@@ -32,25 +37,33 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("listAllmeatraw", Items.beef);
 		OreDictionary.registerOre("listAllmeatraw", Items.chicken);
 		OreDictionary.registerOre("listAllmeatraw", Items.porkchop);
+		OreDictionary.registerOre("listAllmeatraw", ItemRegistry.muttonrawItem);
+		OreDictionary.registerOre("listAllmeatraw", ItemRegistry.turkeyrawItem);
+		OreDictionary.registerOre("listAllmeatraw", ItemRegistry.rabbitrawItem);
+		OreDictionary.registerOre("listAllmeatraw", ItemRegistry.venisonrawItem);
 		if (ItemRegistry.enabletofuasmeatinRecipes)
 		{
-		OreDictionary.registerOre("listAllmeatraw", ItemRegistry.muttonrawItem);
+		
 		OreDictionary.registerOre("listAllmeatraw", ItemRegistry.firmtofuItem);
 		}
 		
 		OreDictionary.registerOre("listAllmeatcooked", Items.cooked_beef);
 		OreDictionary.registerOre("listAllmeatcooked", Items.cooked_chicken);
 		OreDictionary.registerOre("listAllmeatcooked", Items.cooked_porkchop);
+		OreDictionary.registerOre("listAllmeatcooked", ItemRegistry.muttoncookedItem);
+		OreDictionary.registerOre("listAllmeatcooked", ItemRegistry.turkeycookedItem);
+		OreDictionary.registerOre("listAllmeatcooked", ItemRegistry.rabbitcookedItem);
+		OreDictionary.registerOre("listAllmeatcooked", ItemRegistry.venisoncookedItem);
 		if (ItemRegistry.enabletofuasmeatinRecipes)
 		{
-		OreDictionary.registerOre("listAllmeatcooked", ItemRegistry.muttoncookedItem);
+		
 		OreDictionary.registerOre("listAllmeatcooked", ItemRegistry.firmtofuItem);
 		}
 		
 		OreDictionary.registerOre("listAllfishraw", Items.fish);
-		OreDictionary.registerOre("listAllfishraw", new ItemStack(Items.fish, 1));
-		OreDictionary.registerOre("listAllfishraw", new ItemStack(Items.fish, 2));
-		OreDictionary.registerOre("listAllfishraw", new ItemStack(Items.fish, 3));
+		OreDictionary.registerOre("listAllfishraw", new ItemStack(Items.fish, 1, 1));
+		OreDictionary.registerOre("listAllfishraw", new ItemStack(Items.fish, 1, 2));
+		OreDictionary.registerOre("listAllfishraw", new ItemStack(Items.fish, 1, 3));
 		OreDictionary.registerOre("listAllfishraw", ItemRegistry.calamarirawItem);
 		OreDictionary.registerOre("listAllfishraw", ItemRegistry.firmtofuItem);
 		OreDictionary.registerOre("listAllfishraw", ItemRegistry.anchovyrawItem);
@@ -75,10 +88,11 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("listAllfishraw", ItemRegistry.walleyerawItem);
 		
 		OreDictionary.registerOre("listAllfishcooked", Items.cooked_fished);
-		OreDictionary.registerOre("listAllfishcooked", new ItemStack(Items.cooked_fished, 1));
-		OreDictionary.registerOre("listAllfishcooked", new ItemStack(Items.cooked_fished, 2));
-		OreDictionary.registerOre("listAllfishcooked", new ItemStack(Items.cooked_fished, 3));
+		OreDictionary.registerOre("listAllfishcooked", new ItemStack(Items.cooked_fished, 1, 1));
 		OreDictionary.registerOre("listAllfishcooked", ItemRegistry.calamaricookedItem);
+		
+		OreDictionary.registerOre("salmonRaw", new ItemStack(Items.fish, 1));
+		
 		if (ItemRegistry.enabletofuasmeatinRecipes)
 		{
 		OreDictionary.registerOre("listAllfishcooked", ItemRegistry.firmtofuItem);
@@ -134,17 +148,50 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("listAllmuttoncooked", ItemRegistry.firmtofuItem);
 		}
 		
-		if (ItemRegistry.enabletofuasmilkinRecipes)
+		OreDictionary.registerOre("listAllturkeyraw", ItemRegistry.turkeyrawItem);
+		if (ItemRegistry.enabletofuasmeatinRecipes)
 		{
-		OreDictionary.registerOre("listAllReplaceheavycream", ItemRegistry.silkentofuItem);
+		OreDictionary.registerOre("listAllturkeyraw", ItemRegistry.firmtofuItem);
 		}
-		OreDictionary.registerOre("listAllReplaceheavycream", ItemRegistry.heavycreamItem);
+		OreDictionary.registerOre("listAllturkeycooked", ItemRegistry.turkeycookedItem);
+		if (ItemRegistry.enabletofuasmeatinRecipes)
+		{
+		OreDictionary.registerOre("listAllturkeycooked", ItemRegistry.firmtofuItem);
+		}
+		
+		OreDictionary.registerOre("listAllrabbitraw", ItemRegistry.rabbitrawItem);
+		if (ItemRegistry.enabletofuasmeatinRecipes)
+		{
+		OreDictionary.registerOre("listAllrabbitraw", ItemRegistry.firmtofuItem);
+		}
+		OreDictionary.registerOre("listAllrabbitcooked", ItemRegistry.rabbitcookedItem);
+		if (ItemRegistry.enabletofuasmeatinRecipes)
+		{
+		OreDictionary.registerOre("listAllrabbitcooked", ItemRegistry.firmtofuItem);
+		}
+		
+		OreDictionary.registerOre("listAllvenisonraw", ItemRegistry.venisonrawItem);
+		if (ItemRegistry.enabletofuasmeatinRecipes)
+		{
+		OreDictionary.registerOre("listAllvenisonraw", ItemRegistry.firmtofuItem);
+		}
+		OreDictionary.registerOre("listAllvenisoncooked", ItemRegistry.venisoncookedItem);
+		if (ItemRegistry.enabletofuasmeatinRecipes)
+		{
+		OreDictionary.registerOre("listAllvenisoncooked", ItemRegistry.firmtofuItem);
+		}
 		
 		if (ItemRegistry.enabletofuasmilkinRecipes)
 		{
-		OreDictionary.registerOre("listAllReplaceicecream", ItemRegistry.silkentofuItem);
+		OreDictionary.registerOre("listAllheavycream", ItemRegistry.silkentofuItem);
 		}
-		OreDictionary.registerOre("listAllReplaceicecream", ItemRegistry.icecreamItem);
+		OreDictionary.registerOre("listAllheavycream", ItemRegistry.heavycreamItem);
+		
+		if (ItemRegistry.enabletofuasmilkinRecipes)
+		{
+		OreDictionary.registerOre("listAllicecream", ItemRegistry.silkentofuItem);
+		}
+		OreDictionary.registerOre("listAllicecream", ItemRegistry.icecreamItem);
 		
 		OreDictionary.registerOre("listAllwater", Items.water_bucket);
 		OreDictionary.registerOre("listAllwater", ItemRegistry.freshwaterItem);
@@ -156,7 +203,8 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("listAllmilk", ItemRegistry.soymilkItem);
 		}
 		
-		OreDictionary.registerOre("honeyEqualssugar", ItemRegistry.honeyItem);
+		OreDictionary.registerOre("listAllsugar", Items.sugar);
+		OreDictionary.registerOre("listAllsugar", ItemRegistry.honeyItem);
 		
 		OreDictionary.registerOre("listAllveggie", ItemRegistry.asparagusItem);
 		OreDictionary.registerOre("listAllgreenveggie", ItemRegistry.asparagusItem);
@@ -479,7 +527,7 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("foodButter", ItemRegistry.butterItem);
 		OreDictionary.registerOre("foodCheese", ItemRegistry.cheeseItem);
 		OreDictionary.registerOre("foodIcecream", ItemRegistry.icecreamItem);
-		OreDictionary.registerOre("foodGrilledchese", ItemRegistry.grilledcheeseItem);
+		OreDictionary.registerOre("foodGrilledcheese", ItemRegistry.grilledcheeseItem);
 		OreDictionary.registerOre("foodApplesauce", ItemRegistry.applesauceItem);
 		OreDictionary.registerOre("foodApplejuice", ItemRegistry.applejuiceItem);
 		OreDictionary.registerOre("listAlljuice", ItemRegistry.applejuiceItem);
@@ -860,7 +908,7 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("foodMixedsalad", ItemRegistry.mixedsaladItem);
 		OreDictionary.registerOre("foodPinacolada", ItemRegistry.pinacoladaItem);
 		OreDictionary.registerOre("foodSaladdressing", ItemRegistry.saladdressingItem);
-		OreDictionary.registerOre("foodShepardspie", ItemRegistry.shepardspieItem);
+		OreDictionary.registerOre("foodShepherdspie", ItemRegistry.shepardspieItem);
 		OreDictionary.registerOre("foodEggnog", ItemRegistry.eggnogItem);
 		OreDictionary.registerOre("foodCustard", ItemRegistry.custardItem);
 		OreDictionary.registerOre("foodSushi", ItemRegistry.sushiItem);
@@ -958,7 +1006,7 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("foodFigsmoothie", ItemRegistry.figsmoothieItem);
 		OreDictionary.registerOre("foodFigyogurt", ItemRegistry.figyogurtItem);
 		OreDictionary.registerOre("foodFigjuice", ItemRegistry.figjuiceItem);
-		OreDictionary.registerOre("foodGrapefruitjuce", ItemRegistry.grapefruitjuiceItem);
+		OreDictionary.registerOre("foodGrapefruitjuice", ItemRegistry.grapefruitjuiceItem);
 		OreDictionary.registerOre("foodGrapefruitjelly", ItemRegistry.grapefruitjellyItem);
 		OreDictionary.registerOre("foodGrapefruitjellysandwich", ItemRegistry.grapefruitjellysandwichItem);
 		OreDictionary.registerOre("foodGrapefruitjellysmoothie", ItemRegistry.grapefruitsmoothieItem);
@@ -1074,5 +1122,29 @@ public class PamFoodOreDictionaryRegistry
 		OreDictionary.registerOre("foodPickledonions", ItemRegistry.pickledonionsItem);
 		OreDictionary.registerOre("foodPorksausage", ItemRegistry.porksausageItem);
 		OreDictionary.registerOre("foodRaspberrytrifle", ItemRegistry.raspberrytrifleItem);
+		
+		OreDictionary.registerOre("foodTurkeyraw", ItemRegistry.turkeyrawItem);
+		OreDictionary.registerOre("foodTurkeycooked", ItemRegistry.turkeycookedItem);
+		OreDictionary.registerOre("foodRabbitraw", ItemRegistry.rabbitrawItem);
+		OreDictionary.registerOre("foodRabbitcooked", ItemRegistry.rabbitcookedItem);
+		OreDictionary.registerOre("foodVenisonraw", ItemRegistry.venisonrawItem);
+		OreDictionary.registerOre("foodVenisoncooked", ItemRegistry.venisoncookedItem);
+		
+		OreDictionary.registerOre("foodStrawberrymilkshake", ItemRegistry.strawberrymilkshakeItem);
+		OreDictionary.registerOre("foodChocolatemilkshake", ItemRegistry.chocolatemilkshakeItem);
+		OreDictionary.registerOre("foodBananamilkshake", ItemRegistry.bananamilkshakeItem);
+		OreDictionary.registerOre("foodCornflakes", ItemRegistry.cornflakesItem);
+		OreDictionary.registerOre("foodColeslawburger", ItemRegistry.coleslawburgerItem);
+		OreDictionary.registerOre("foodRoastchicken", ItemRegistry.roastchickenItem);
+		OreDictionary.registerOre("foodRoastpotatoes", ItemRegistry.roastpotatoesItem);
+		OreDictionary.registerOre("foodSundayroast", ItemRegistry.sundayroastItem);
+		OreDictionary.registerOre("foodBbqpulledpork", ItemRegistry.bbqpulledporkItem);
+		OreDictionary.registerOre("foodLambwithmintsauce", ItemRegistry.lambwithmintsauceItem);
+		OreDictionary.registerOre("foodSteakandchips", ItemRegistry.steakandchipsItem);
+		
+		OreDictionary.registerOre("foodCherryicecream", ItemRegistry.cherryicecreamItem);
+		OreDictionary.registerOre("foodPistachioicecream", ItemRegistry.pistachioicecreamItem);
+		OreDictionary.registerOre("foodNeapolitanicecream", ItemRegistry.neapolitanicecreamItem);
+		OreDictionary.registerOre("foodSpumoniicecream", ItemRegistry.spumoniicecreamItem);
 	}
 }

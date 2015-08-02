@@ -183,13 +183,14 @@ public class BlockPamSapling extends BlockFlower
 		
 		if (this == BlockRegistry.pambananaSapling)
 		{
+			
 			if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, par1Random, x, y, z)) return;
 			int l = world.getBlockMetadata(x, y, z) & 7;
 			Object object = null;
 			int i1 = 0;
 			int j1 = 0;
 
-			object = new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamBanana);
+			object = new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamBanana);
 
 			world.setBlock(x, y, z, Blocks.air, 0, 4);
 
@@ -205,7 +206,7 @@ public class BlockPamSapling extends BlockFlower
 			int i1 = 0;
 			int j1 = 0;
 
-			object = new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamCoconut);
+			object = new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamCoconut);
 
 			world.setBlock(x, y, z, Blocks.air, 0, 4);
 
@@ -221,7 +222,7 @@ public class BlockPamSapling extends BlockFlower
 			int i1 = 0;
 			int j1 = 0;
 
-			object = new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamDate);
+			object = new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamDate);
 
 			world.setBlock(x, y, z, Blocks.air, 0, 4);
 
@@ -237,7 +238,7 @@ public class BlockPamSapling extends BlockFlower
 			int i1 = 0;
 			int j1 = 0;
 
-			object = new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamDragonfruit);
+			object = new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamDragonfruit);
 
 			world.setBlock(x, y, z, Blocks.air, 0, 4);
 
@@ -253,7 +254,7 @@ public class BlockPamSapling extends BlockFlower
 			int i1 = 0;
 			int j1 = 0;
 
-			object = new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamPapaya);
+			object = new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamPapaya);
 
 			world.setBlock(x, y, z, Blocks.air, 0, 4);
 

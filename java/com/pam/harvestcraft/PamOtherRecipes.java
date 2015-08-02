@@ -150,7 +150,7 @@ public class PamOtherRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ItemRegistry.skilletItem, true, new Object[]{
 	 	 		"@  ", " @ ", "  X", Character.valueOf('@'), "ingotIron", Character.valueOf('X'), "stickWood"}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ItemRegistry.saucepanItem, true, new Object[]{
-	 	 		"@  ", "X  ", Character.valueOf('@'), "ingotIron", Character.valueOf('X'), "stickWood"}));
+	 	 		"@ ", "X ", Character.valueOf('@'), "ingotIron", Character.valueOf('X'), "stickWood"}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ItemRegistry.bakewareItem, true, new Object[]{
 	 	 		"@@@", "@ @", "@@@", Character.valueOf('@'), "ingotBrick"}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ItemRegistry.cuttingboardItem, true, new Object[]{
@@ -160,7 +160,7 @@ public class PamOtherRecipes
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ItemRegistry.mixingbowlItem, true, new Object[]{
 	 	 		"X@X", " X ", Character.valueOf('@'), "stickWood", Character.valueOf('X'), "plankWood"}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ItemRegistry.juicerItem, true, new Object[]{
-	 	 		" @ ", " X ", Character.valueOf('@'), "stone", Character.valueOf('X'), Blocks.stone_pressure_plate}));
+	 	 		"@ ", "X ", Character.valueOf('@'), "stone", Character.valueOf('X'), Blocks.stone_pressure_plate}));
 		
 		//Copper Tools
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(ItemRegistry.potItem, true, new Object[]{
@@ -327,6 +327,43 @@ public class PamOtherRecipes
 				
 				//Random Recipes
 				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Items.slime_ball, 1), "foodJellyfishraw"));
+				
+				//Compressed Salt Block
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.pamcompressedsaltBlock, 1), new Object[]
+		                {
+		                    "XXX", "XXX", "XXX",'X', ItemRegistry.saltItem
+		                }));
+				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.saltItem, 9), BlockRegistry.pamcompressedsaltBlock));
+
+				//Churn
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.pamChurn, 1), new Object[]
+		                {
+		                    " S ", "XSX", "XXX",'X', "plankWood", 'S', "stickWood"
+		                }));
+				//Quern
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.pamQuern, 1), new Object[]
+		                {
+							"S  ", "XPX", "XPX",'X', "stone", 'S', "stickWood", 'P', Blocks.stone_pressure_plate
+		                }));
+				//Animal Trap
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.pamanimalTrap, 1), new Object[]
+		                {
+		                    "XTX", "OCO", "XOX",'X', "stickWood", 'O', Items.string, 'C', Blocks.chest, 'T', Blocks.trapdoor
+		                }));
+				//Fish Trap
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockRegistry.pamfishTrap, 1), new Object[]
+		                {
+							"XFX", "OCO", "XOX",'X', "stickWood", 'O', Items.string, 'C', Blocks.chest, 'F', Items.fishing_rod
+		                }));
+				
+				//Baits
+				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.grainbaitItem, ItemRegistry.grainbaitrecipeamount), Items.string, "listAllgrain", "listAllgrain", "listAllgrain"));
+				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.veggiebaitItem, ItemRegistry.veggiebaitrecipeamount), Items.string, "listAllveggie", "listAllveggie", "listAllveggie"));
+				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.fruitbaitItem, ItemRegistry.fruitbaitrecipeamount), Items.string, "listAllfruit", "listAllfruit", "listAllfruit"));
+				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(ItemRegistry.fishtrapbaitItem, ItemRegistry.fishtrapbaitrecipeamount), Items.string, "listAllfishraw", "listAllfishraw", "listAllfishraw"));
+
+				//Pumpkin Lanterns
+				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Blocks.lit_pumpkin, 1), "cropPumpkin", "blockTorch"));
 
 	}
 	

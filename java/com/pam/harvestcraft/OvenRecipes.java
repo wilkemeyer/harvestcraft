@@ -44,6 +44,9 @@ public class OvenRecipes
 		
 		this.func_151396_a(ItemRegistry.muttonrawItem, new ItemStack(ItemRegistry.muttoncookedItem, 1, 0), 0.1F);
 		this.func_151396_a(ItemRegistry.calamarirawItem, new ItemStack(ItemRegistry.calamaricookedItem, 1, 0), 0.1F);
+		this.func_151396_a(ItemRegistry.turkeyrawItem, new ItemStack(ItemRegistry.turkeycookedItem, 1, 0), 0.1F);
+		this.func_151396_a(ItemRegistry.rabbitrawItem, new ItemStack(ItemRegistry.rabbitcookedItem, 1, 0), 0.1F);
+		this.func_151396_a(ItemRegistry.venisonrawItem, new ItemStack(ItemRegistry.venisoncookedItem, 1, 0), 0.1F);
 	  
 		this.func_151396_a(ItemRegistry.asparagusItem, new ItemStack(ItemRegistry.grilledasparagusItem, 1, 0), 0.1F);
 		this.func_151396_a(ItemRegistry.riceItem, new ItemStack(ItemRegistry.ricecakeItem, 1, 0), 0.1F);

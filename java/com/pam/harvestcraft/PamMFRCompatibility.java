@@ -89,7 +89,7 @@ public class PamMFRCompatibility
 				ItemRegistry.eggplantseedItem, ItemRegistry.okraseedItem, ItemRegistry.peasseedItem, 
 				ItemRegistry.tomatoseedItem, ItemRegistry.cottonseedItem, ItemRegistry.pineappleseedItem, 
 				ItemRegistry.grapeseedItem, ItemRegistry.kiwiseedItem, ItemRegistry.cranberryseedItem, 
-				ItemRegistry.riceseedItem, ItemRegistry.seaweedItem, ItemRegistry.spinachseedItem
+				ItemRegistry.riceseedItem, ItemRegistry.seaweedseedItem, ItemRegistry.spinachseedItem
 				});
 		
 		PamTemperateSaplings = (new Block[] 

@@ -23,9 +23,18 @@ public class BlockRegistry
   public static Block pamPresser;
   public static Block pamSink;
   public static Block pamSalt;
+  public static Block pamcompressedsaltBlock;
   public static Block pamMarket;
   public static Block pamOven;
   public static Block pamOvenon;
+  public static Block pamChurn;
+  public static Block pamChurnon;
+  public static Block pamQuern;
+  public static Block pamQuernon;
+  public static Block pamDehydrator;
+  public static Block pamDehydratoron;
+  public static Block pamfishTrap;
+  public static Block pamanimalTrap;
   public static Block pamberryGarden;
   public static Block pamdesertGarden;
   public static Block pamgrassGarden;
@@ -194,6 +203,7 @@ public class BlockRegistry
 	public static Block pamlamingtonCake;
 	public static Block pampavlovaCake;
 	public static Block pamholidayCake;
+	public static Block pampumpkincheeseCake;
   
   public static int saltRarity;
   public static boolean enablesaltGeneration;
@@ -293,6 +303,7 @@ public class BlockRegistry
 	public static boolean rightclickharvestCrop;
 	public static boolean rightclickharvestFruit;
 	public static boolean gardensdropSeeds;
+	public static boolean enablecropspecialplanting;
 	
 	public static int candlerecipeAmount;
 	public static float candlelightLevel;
@@ -392,12 +403,14 @@ public class BlockRegistry
 		starfruittreeGeneration = config.get("fruit trees", "starfruittreeGeneration", true).getBoolean(true);
 		vanillabeantreeGeneration = config.get("fruit trees", "vanillabeantreeGeneration", true).getBoolean(true);
 		walnuttreeGeneration = config.get("fruit trees", "walnuttreeGeneration", true).getBoolean(true);
+		
 		cropsdropSeeds = config.get("crops", "cropsdropSeeds", false).getBoolean(false);
 		rightclickmatureshowfruitHearts = config.get("fruit trees", "rightclickmatureshowfruitHearts", false).getBoolean(false);
 		rightclickmatureshowcropHearts = config.get("crops", "rightclickmatureshowcropHearts", false).getBoolean(false);
 		rightclickharvestCrop = config.get("crops", "rightclickharvestCrop", true).getBoolean(true);
 		rightclickharvestFruit = config.get("fruit trees", "rightclickharvestFruit", true).getBoolean(true);
 		gardensdropSeeds = config.get("gardens", "gardensdropSeeds", false).getBoolean(false);
+		enablecropspecialplanting = config.get("crops", "enablecropspecialplanting", true).getBoolean(true);
 		
 		candlerecipeAmount = config.get("candles","candlerecipeAmount", 4).getInt();
 		candlelightLevel = (float) config.get("candles","candlelightLevel", 0.9375F).getDouble(0.9375F);
@@ -431,6 +444,9 @@ public class BlockRegistry
 	  pamSalt = new BlockPamSalt().setHardness(1.5F).setResistance(10F).setBlockTextureName("harvestcraft:salt").setBlockName("salt").setCreativeTab(harvestcraft.tabHarvestCraft);
 	  GameRegistry.registerBlock(pamSalt, "salt");
 	  
+	  pamcompressedsaltBlock = new BlockPamSalt().setHardness(1.5F).setResistance(10F).setBlockTextureName("harvestcraft:pamcompressedsaltBlock").setBlockName("pamcompressedsaltBlock").setCreativeTab(harvestcraft.tabHarvestCraft);
+	  GameRegistry.registerBlock(pamcompressedsaltBlock, "spamcompressedsaltBlockalt");
+	  
 	  pamMarket = new BlockPamMarket(Material.wood).setHardness(1.0F).setResistance(1F).setBlockName("market");
 	  GameRegistry.registerBlock(pamMarket, "market");
 	  
@@ -438,6 +454,22 @@ public class BlockRegistry
 	  GameRegistry.registerBlock(pamOven, "oven");
 	  pamOvenon = new BlockPamOven(true).setHardness(1.5F).setResistance(10F).setBlockName("ovenon");
 	  GameRegistry.registerBlock(pamOvenon, "ovenon");
+	  
+	  pamChurn = new BlockPamChurn(false).setHardness(1.5F).setResistance(10F).setBlockName("churn").setCreativeTab(harvestcraft.tabHarvestCraft);
+	  GameRegistry.registerBlock(pamChurn, "churn");
+	  pamChurnon = new BlockPamChurn(true).setHardness(1.5F).setResistance(10F).setBlockName("churnon");
+	  GameRegistry.registerBlock(pamChurnon, "churnon");
+	  
+	  pamQuern = new BlockPamQuern(false).setHardness(1.5F).setResistance(10F).setBlockName("quern").setCreativeTab(harvestcraft.tabHarvestCraft);
+	  GameRegistry.registerBlock(pamQuern, "quern");
+	  pamQuernon = new BlockPamQuern(true).setHardness(1.5F).setResistance(10F).setBlockName("quernon");
+	  GameRegistry.registerBlock(pamQuernon, "quernon");
+	  
+	  pamfishTrap = new BlockPamFishTrap().setHardness(1.0F).setBlockName("fishtrap");
+	  GameRegistry.registerBlock(pamfishTrap, "fishtrap");
+	  
+	  pamanimalTrap = new BlockPamAnimalTrap().setHardness(1.0F).setBlockName("animaltrap");
+	  GameRegistry.registerBlock(pamanimalTrap, "animaltrap");
 
 	  pamberryGarden = new BlockPamNormalGarden(0).setBlockTextureName("harvestcraft:berrygarden0").setBlockName("berrygarden");
 	  GameRegistry.registerBlock(pamberryGarden, "berrygarden");
@@ -816,6 +848,8 @@ public class BlockRegistry
 		GameRegistry.registerBlock(pampavlovaCake, "pampavlovaCake");
 		pamholidayCake = new BlockPamCake(5).setHardness(0.5F).setBlockTextureName("harvestcraft:pamholidaycake").setBlockName("pamholidayCake").setCreativeTab(harvestcraft.tabHarvestCraft3);
 		GameRegistry.registerBlock(pamholidayCake, "pamholidayCake");
+		pampumpkincheeseCake = new BlockPamCake(6).setHardness(0.5F).setBlockTextureName("harvestcraft:pampumpkincheesecake").setBlockName("pampumpkincheeseCake").setCreativeTab(harvestcraft.tabHarvestCraft3);
+		GameRegistry.registerBlock(pampumpkincheeseCake, "pampumpkincheeseCake");
 		
 	  
 	  

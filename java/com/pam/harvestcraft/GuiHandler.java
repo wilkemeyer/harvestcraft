@@ -28,6 +28,18 @@ public class GuiHandler implements IGuiHandler {
          case 5:
 	           return new ContainerOven(player.inventory,
 	                    (TileEntityOven) tileEntity);
+         case 6:
+	           return new ContainerChurn(player.inventory,
+	                    (TileEntityChurn) tileEntity);
+         case 7:
+	           return new ContainerQuern(player.inventory,
+	                    (TileEntityQuern) tileEntity);
+         case 8:
+	            return new ContainerPamAnimalTrap(player.inventory,
+	                    (TileEntityPamAnimalTrap) tileEntity);
+         case 9:
+	            return new ContainerPamFishTrap(player.inventory,
+	                    (TileEntityPamFishTrap) tileEntity);
 		 }
 		 return null;
 	  }
@@ -52,6 +64,18 @@ public class GuiHandler implements IGuiHandler {
 	         case 5:
 		            return new GuiOven(player.inventory,
 		                    (TileEntityOven) tileEntity);
+	         case 6:
+		           return new GuiChurn(player.inventory,
+		                    (TileEntityChurn) tileEntity);
+	         case 7:
+		           return new GuiQuern(player.inventory,
+		                    (TileEntityQuern) tileEntity);
+	         case 8:
+		            return new GuiPamAnimalTrap(player.inventory,
+		                    (TileEntityPamAnimalTrap) tileEntity);
+	         case 9:
+		            return new GuiPamFishTrap(player.inventory,
+		                    (TileEntityPamFishTrap) tileEntity);
 			 }
 			 return null;
 	  }
