@@ -1242,11 +1242,11 @@ public class ItemRegistry
 		  GameRegistry.registerItem(grapeItem, "grapeItem");
 		  kiwiItem = new ItemPamSeedFood(cropfoodRestore, cropsaturationRestore, BlockRegistry.pamkiwiCrop, Blocks.farmland).setUnlocalizedName("kiwiItem").setTextureName("harvestcraft:kiwiItem").setCreativeTab(harvestcraft.tabHarvestCraft2);
 		  GameRegistry.registerItem(kiwiItem, "kiwiItem");
-		  cranberryItem = new ItemPamSeedFood(cropfoodRestore, cropsaturationRestore, BlockRegistry.pamcranberryCrop, Blocks.water).setUnlocalizedName("cranberryItem").setTextureName("harvestcraft:cranberryItem").setCreativeTab(harvestcraft.tabHarvestCraft2);
+		  cranberryItem = new ItemPamSeedFood(cropfoodRestore, cropsaturationRestore, BlockRegistry.pamcranberryCrop, Blocks.farmland).setUnlocalizedName("cranberryItem").setTextureName("harvestcraft:cranberryItem").setCreativeTab(harvestcraft.tabHarvestCraft2);
 		  GameRegistry.registerItem(cranberryItem, "cranberryItem");
-		  riceItem = new ItemPamSeedFood(cropfoodRestore, cropsaturationRestore, BlockRegistry.pamriceCrop, Blocks.water).setUnlocalizedName("riceItem").setTextureName("harvestcraft:riceItem").setCreativeTab(harvestcraft.tabHarvestCraft2);
+		  riceItem = new ItemPamSeedFood(cropfoodRestore, cropsaturationRestore, BlockRegistry.pamriceCrop, Blocks.farmland).setUnlocalizedName("riceItem").setTextureName("harvestcraft:riceItem").setCreativeTab(harvestcraft.tabHarvestCraft2);
 		  GameRegistry.registerItem(riceItem, "riceItem");
-		  seaweedItem = new ItemPamSeedFood(cropfoodRestore, cropsaturationRestore, BlockRegistry.pamseaweedCrop, Blocks.water).setUnlocalizedName("seaweedItem").setTextureName("harvestcraft:seaweedItem").setCreativeTab(harvestcraft.tabHarvestCraft2);
+		  seaweedItem = new ItemPamSeedFood(cropfoodRestore, cropsaturationRestore, BlockRegistry.pamseaweedCrop, Blocks.farmland).setUnlocalizedName("seaweedItem").setTextureName("harvestcraft:seaweedItem").setCreativeTab(harvestcraft.tabHarvestCraft2);
 		  GameRegistry.registerItem(seaweedItem, "seaweedItem");
 		  
 		  blackberryseedItem = new ItemSeeds(BlockRegistry.pamblackberryCrop, Blocks.farmland).setUnlocalizedName("blackberryseedItem").setTextureName("harvestcraft:blackberryseedItem").setCreativeTab(harvestcraft.tabHarvestCraft2);

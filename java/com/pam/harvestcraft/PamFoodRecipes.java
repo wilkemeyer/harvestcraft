@@ -50,10 +50,15 @@ public class PamFoodRecipes
 		
 		if (ItemRegistry.enablecroptoseedRecipe)
 		{
-		for(int i = 0; i < 57; ++i)
-		{
-			CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.PamSeeds[i], ItemRegistry.PamCropItems[i]));
-		}
+			for(int i = 0; i < 57; ++i)
+			{
+				if (!(BlockRegistry.enablecropspecialplanting && (ItemRegistry.PamCropItems[i] == ItemRegistry.cranberryItem
+						|| ItemRegistry.PamCropItems[i] == ItemRegistry.riceItem
+						|| ItemRegistry.PamCropItems[i] == ItemRegistry.seaweedItem)))
+				{
+					CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(ItemRegistry.PamSeeds[i], ItemRegistry.PamCropItems[i]));
+				}
+			}
 		}
 		for(int i = 0; i < 57; ++i)
 		{

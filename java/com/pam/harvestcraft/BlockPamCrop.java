@@ -25,8 +25,8 @@ public class BlockPamCrop extends BlockCrops implements IPlantable
 
 
 	
-	 @SideOnly(Side.CLIENT)
-	    private IIcon[] field_149868_a;
+	@SideOnly(Side.CLIENT)
+    private IIcon[] field_149868_a;
 	
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int p_149691_1_, int p_149691_2_)
@@ -47,11 +47,11 @@ public class BlockPamCrop extends BlockCrops implements IPlantable
     }
 	
 	 /* Right-click harvests crop item*/
-		@Override
-		public boolean onBlockActivated (World world, int par2, int par3, int par4, EntityPlayer player, int par6, float par7, float par8, float par9)
+	@Override
+	public boolean onBlockActivated (World world, int par2, int par3, int par4, EntityPlayer player, int par6, float par7, float par8, float par9)
+	{
+		if (BlockRegistry.rightclickmatureshowcropHearts == true)
 		{
-			if (BlockRegistry.rightclickmatureshowcropHearts == true)
-			{
 			int meta = world.getBlockMetadata(par2, par3, par4);
 
 	        if (meta == 7)
@@ -63,9 +63,9 @@ public class BlockPamCrop extends BlockCrops implements IPlantable
 	            float f4 = 0.6F - 0.3F;
 	        	world.spawnParticle("heart", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 	        }
-			}
-			if (BlockRegistry.rightclickharvestCrop == true)
-			{
+		}
+		if (BlockRegistry.rightclickharvestCrop == true)
+		{
 			int meta = world.getBlockMetadata(par2, par3, par4);
 
 	        if (meta == 7)
@@ -77,21 +77,21 @@ public class BlockPamCrop extends BlockCrops implements IPlantable
 	        		
 	        	}
 	        }
-			}
-			
-			return false;
 		}
+		
+		return false;
+	}
 	
-		public int quantityDropped(Random p_149745_1_)
-	    {
-			if (BlockRegistry.rightclickharvestCrop == true)
-			{
-				return 0;
-			} else
-		
-	        return 1;
-		
-	    }
+	public int quantityDropped(Random p_149745_1_)
+    {
+		if (BlockRegistry.rightclickharvestCrop == true)
+		{
+			return 0;
+		} else
+	
+        return 1;
+	
+    }
 		
 	@Override
 	protected boolean canPlaceBlockOn(Block p_149854_1_)
@@ -374,17 +374,32 @@ public class BlockPamCrop extends BlockCrops implements IPlantable
             	return ItemRegistry.kiwiseedItem;
             }
             //Water Crops
-            if (this == BlockRegistry.pamcranberryCrop)
-            {
-            	return ItemRegistry.cranberryseedItem;
-            }
-            if (this == BlockRegistry.pamriceCrop)
-            {
-            	return ItemRegistry.riceseedItem;
-            }
-            if (this == BlockRegistry.pamseaweedCrop)
-            {
-            	return ItemRegistry.seaweedseedItem;
+            if (!BlockRegistry.enablecropspecialplanting){
+	            if (this == BlockRegistry.pamcranberryCrop)
+	            {
+	            	return ItemRegistry.cranberryseedItem;
+	            }
+	            if (this == BlockRegistry.pamriceCrop)
+	            {
+	            	return ItemRegistry.riceseedItem;
+	            }
+	            if (this == BlockRegistry.pamseaweedCrop)
+	            {
+	            	return ItemRegistry.seaweedseedItem;
+	            }
+            }else{
+            	if (this == BlockRegistry.pamcranberryCrop)
+                {
+                	return ItemRegistry.cranberryItem;
+                }
+                if (this == BlockRegistry.pamriceCrop)
+                {
+                	return ItemRegistry.riceItem;
+                }
+                if (this == BlockRegistry.pamseaweedCrop)
+                {
+                	return ItemRegistry.seaweedItem;
+                }
             }
     	} 
     	if (BlockRegistry.cropsdropSeeds == false)

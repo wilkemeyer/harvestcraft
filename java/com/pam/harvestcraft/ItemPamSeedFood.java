@@ -36,49 +36,33 @@ public class ItemPamSeedFood extends ItemFood implements IPlantable
     {
     	if (ItemRegistry.enablecropitemsasseeds)
     	{
-        if (par7 != 1)
-        {
-            return false;
-        }
-        else if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
-        {
-        	
-            if (par3World.getBlock(par4, par5, par6) == this.soilId && par3World.isAirBlock(par4, par5 + 1, par6))
-            {
-                par3World.setBlock(par4, par5 + 1, par6, this.field_150908_b);
-                --par1ItemStack.stackSize;
-                return true;
-            }
-            if (BlockRegistry.enablecropspecialplanting)
-        	{
-            if ((this == ItemRegistry.cranberryItem) && (par3World.getBlock(par4, par5 + 1, par6).getMaterial() == Material.water && par3World.getBlockMetadata(par4, par5 + 1, par6) == 0))
-            {
-            	par3World.setBlock(par4, par5 + 2, par6, this.field_150908_b);
-                --par1ItemStack.stackSize;
-                return true;
-            }
-            if ((this == ItemRegistry.riceItem) && (par3World.getBlock(par4, par5 + 1, par6).getMaterial() == Material.water && par3World.getBlockMetadata(par4, par5 + 1, par6) == 0))
-            {
-            	par3World.setBlock(par4, par5 + 2, par6, this.field_150908_b);
-                --par1ItemStack.stackSize;
-                return true;
-            }
-            if ((this == ItemRegistry.seaweedItem) && (par3World.getBlock(par4, par5 + 1, par6).getMaterial() == Material.water && par3World.getBlockMetadata(par4, par5 + 1, par6) == 0))
-            {
-            	par3World.setBlock(par4, par5 + 2, par6, this.field_150908_b);
-                --par1ItemStack.stackSize;
-                return true;
-            }
-        	}
-            	else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+	        if (par7 != 1)
+	        {
+	            return false;
+	        }
+	        else if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
+	        {
+	        	boolean isWaterPlant = (this == ItemRegistry.cranberryItem 
+	        						 || this == ItemRegistry.riceItem
+	        						 || this == ItemRegistry.seaweedItem);
+	        	
+	        	if (isWaterPlant && BlockRegistry.enablecropspecialplanting)
+	        	{
+		            if (par3World.getBlock(par4, par5 + 1, par6).getMaterial() == Material.water 
+		            	&& par3World.getBlockMetadata(par4, par5 + 1, par6) == 0
+		            	&& par3World.isAirBlock(par4, par5 + 2, par6))
+		            {
+		            	par3World.setBlock(par4, par5 + 2, par6, this.field_150908_b);
+		                --par1ItemStack.stackSize;
+		                return true;
+		            }
+	        	} else if (par3World.getBlock(par4, par5, par6) == this.soilId && par3World.isAirBlock(par4, par5 + 1, par6))
+	            {
+	                par3World.setBlock(par4, par5 + 1, par6, this.field_150908_b);
+	                --par1ItemStack.stackSize;
+	                return true;
+	            }
+	        }
     	}
     	return false;
     }

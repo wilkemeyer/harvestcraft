@@ -55,15 +55,27 @@ public class BlockPamWaterGarden extends BlockFlower implements IPlantable
             
             if (i == 0)
             {
-            	return ItemRegistry.cranberryseedItem;
+            	if (BlockRegistry.enablecropspecialplanting){
+            		return ItemRegistry.cranberryItem;
+            	}else{
+            		return ItemRegistry.cranberryseedItem;
+            	}
             }
             if (i == 1)
             {
-            	return ItemRegistry.riceseedItem;
+            	if (BlockRegistry.enablecropspecialplanting){
+            		return ItemRegistry.riceItem;
+            	}else{
+            		return ItemRegistry.riceseedItem;
+            	}
             } 
             if (i == 2)
             {
-            	return ItemRegistry.seaweedseedItem;
+            	if (BlockRegistry.enablecropspecialplanting){
+            		return ItemRegistry.seaweedItem;
+            	}else{
+            		return ItemRegistry.seaweedseedItem;
+            	}
             }
             if (i == 3)
             {
