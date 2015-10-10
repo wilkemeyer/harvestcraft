@@ -16,6 +16,8 @@ public class FishRegistry
 	
 		public static void registerItems()
 		{
+			if (ItemRegistry.enableharvestcraftfish)
+			{
 			registerLoot(new ItemStack(ItemRegistry.seaweedItem, 1, 0), 10);
 			registerNormal(new ItemStack(ItemRegistry.anchovyrawItem, 1, 0), 25);
 			registerNormal(new ItemStack(ItemRegistry.bassrawItem, 1, 0), 25);
@@ -34,6 +36,7 @@ public class FishRegistry
 			registerNormal(new ItemStack(ItemRegistry.troutrawItem, 1, 0), 25);
 			registerNormal(new ItemStack(ItemRegistry.tunarawItem, 1, 0), 25);
 			registerNormal(new ItemStack(ItemRegistry.walleyerawItem, 1, 0), 25);
+			}
 
 		}
         /**

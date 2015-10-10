@@ -45,7 +45,7 @@ implements IWorldGenerator
 			//Temperate Fruit Trees
 				for (int k = 0; k < BlockRegistry.temperatefruittreeRarity; k++)
 					{
-						int l = rand.nextInt(128);
+						int l = rand.nextInt(256);
 						int i1 = chunkX + rand.nextInt(16);
 						int j1 = chunkZ + rand.nextInt(16);
 						if ((world.getBlock(i1, l - 1, j1) == Blocks.grass || world.getBlock(i1, l - 1, j1) == Blocks.dirt))
@@ -102,12 +102,12 @@ implements IWorldGenerator
 		{
 			for (int k = 0; k < BlockRegistry.tropicalfruittreeRarity; k++)
 				{
-						int l = rand.nextInt(128);
+						int l = rand.nextInt(256);
 						int i1 = chunkX + rand.nextInt(16);
 						int j1 = chunkZ + rand.nextInt(16);
 						if ((world.getBlock(i1, l - 1, j1) == Blocks.grass || world.getBlock(i1, l - 1, j1) == Blocks.dirt))
 							{
-								(new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamCoconut)).generate(world, rand, i1, l, j1);
+								(new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamCoconut)).generate(world, rand, i1, l, j1);
 							}
 				}
 		}
@@ -122,7 +122,7 @@ implements IWorldGenerator
 			
 				for (int k = 0; k < BlockRegistry.tropicalfruittreeRarity; k++)
 					{
-							int l = rand.nextInt(128);
+							int l = rand.nextInt(256);
 							int i1 = chunkX + rand.nextInt(16);
 							int j1 = chunkZ + rand.nextInt(16);
 							if ((world.getBlock(i1, l - 1, j1) == Blocks.grass || world.getBlock(i1, l - 1, j1) == Blocks.dirt))
@@ -132,7 +132,7 @@ implements IWorldGenerator
 								case 0:
 									if (BlockRegistry.bananatreeGeneration)
 										{
-											(new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamBanana)).generate(world, rand, i1, l, j1);
+											(new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamBanana)).generate(world, rand, i1, l, j1);
 										}
 								case 1:
 									if (BlockRegistry.cinnamontreeGeneration)
@@ -142,22 +142,22 @@ implements IWorldGenerator
 								case 2:
 									if (BlockRegistry.coconuttreeGeneration)
 										{
-									(new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamCoconut)).generate(world, rand, i1, l, j1);
+									(new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamCoconut)).generate(world, rand, i1, l, j1);
 										}
 								case 3:
 									if (BlockRegistry.datetreeGeneration)
 										{
-									(new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamDate)).generate(world, rand, i1, l, j1);
+									(new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamDate)).generate(world, rand, i1, l, j1);
 										}
 								case 4:
 									if (BlockRegistry.dragonfruittreeGeneration)
 										{
-									(new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamDragonfruit)).generate(world, rand, i1, l, j1);
+									(new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamDragonfruit)).generate(world, rand, i1, l, j1);
 										}
 								case 5:
 									if (BlockRegistry.papayatreeGeneration)
 										{
-									(new WorldGenPamFruitPalmTree(true, 5, 3, 3, BlockRegistry.pamPapaya)).generate(world, rand, i1, l, j1);
+									(new WorldGenPamFruitTree(true, 5, 3, 3, BlockRegistry.pamPapaya)).generate(world, rand, i1, l, j1);
 										}
 								case 6:
 									if (BlockRegistry.almondtreeGeneration)
@@ -267,7 +267,7 @@ implements IWorldGenerator
 			{
 				for (int k = 0; k < BlockRegistry.coniferousfruittreeRarity; k++)
 					{
-							int l = rand.nextInt(128);
+							int l = rand.nextInt(256);
 							int i1 = chunkX + rand.nextInt(16);
 							int j1 = chunkZ + rand.nextInt(16);
 							if ((world.getBlock(i1, l - 1, j1) == Blocks.grass || world.getBlock(i1, l - 1, j1) == Blocks.dirt))

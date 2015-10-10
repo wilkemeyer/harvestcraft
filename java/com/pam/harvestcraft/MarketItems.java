@@ -38,12 +38,18 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(ItemRegistry.PamSeeds[i]), new ItemStack(Items.emerald), BlockRegistry.marketseedPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Items.wheat_seeds), new ItemStack(Items.emerald), BlockRegistry.marketseedPrice));
+				registerItems(new MarketData(new ItemStack(Items.pumpkin_seeds), new ItemStack(Items.emerald), BlockRegistry.marketseedPrice));
+				registerItems(new MarketData(new ItemStack(Items.melon_seeds), new ItemStack(Items.emerald), BlockRegistry.marketseedPrice));
 			}
 			if (BlockRegistry.marketcurrencySeeds == 1)
 			{
 				for(int i = 0; i < 57; ++i)
 				{
 					registerItems(new MarketData(new ItemStack(ItemRegistry.PamSeeds[i]), new ItemStack(Items.diamond), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.wheat_seeds), new ItemStack(Items.diamond), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.pumpkin_seeds), new ItemStack(Items.diamond), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.melon_seeds), new ItemStack(Items.diamond), BlockRegistry.marketseedPrice));
 				}
 			}
 			if (BlockRegistry.marketcurrencySeeds == 2)
@@ -51,6 +57,9 @@ public class MarketItems
 				for(int i = 0; i < 57; ++i)
 				{
 					registerItems(new MarketData(new ItemStack(ItemRegistry.PamSeeds[i]), new ItemStack(Items.gold_ingot), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.wheat_seeds), new ItemStack(Items.gold_ingot), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.pumpkin_seeds), new ItemStack(Items.gold_ingot), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.melon_seeds), new ItemStack(Items.gold_ingot), BlockRegistry.marketseedPrice));
 				}
 			}
 			if (BlockRegistry.marketcurrencySeeds == 3)
@@ -58,6 +67,9 @@ public class MarketItems
 				for(int i = 0; i < 57; ++i)
 				{
 					registerItems(new MarketData(new ItemStack(ItemRegistry.PamSeeds[i]), new ItemStack(Items.gold_nugget), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.wheat_seeds), new ItemStack(Items.gold_nugget), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.pumpkin_seeds), new ItemStack(Items.gold_nugget), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.melon_seeds), new ItemStack(Items.gold_nugget), BlockRegistry.marketseedPrice));
 				}
 			}
 			if (BlockRegistry.marketcurrencySeeds == 4)
@@ -65,6 +77,9 @@ public class MarketItems
 				for(int i = 0; i < 57; ++i)
 				{
 					registerItems(new MarketData(new ItemStack(ItemRegistry.PamSeeds[i]), new ItemStack(Items.iron_ingot), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.wheat_seeds), new ItemStack(Items.iron_ingot), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.pumpkin_seeds), new ItemStack(Items.iron_ingot), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.melon_seeds), new ItemStack(Items.iron_ingot), BlockRegistry.marketseedPrice));
 				}
 			}
 			if (BlockRegistry.marketcurrencySeeds == 5)
@@ -72,6 +87,9 @@ public class MarketItems
 				for(int i = 0; i < 57; ++i)
 				{
 					registerItems(new MarketData(new ItemStack(ItemRegistry.PamSeeds[i]), new ItemStack(Items.wheat_seeds), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.wheat_seeds), new ItemStack(Items.wheat_seeds), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.pumpkin_seeds), new ItemStack(Items.wheat_seeds), BlockRegistry.marketseedPrice));
+					registerItems(new MarketData(new ItemStack(Items.melon_seeds), new ItemStack(Items.wheat_seeds), BlockRegistry.marketseedPrice));
 				}
 			}
 		}
@@ -84,6 +102,10 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(BlockRegistry.PamTemperateSaplings[i], 1), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 2), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 5), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
+				
 			}
 			if (BlockRegistry.marketcurrencytemperateSaplings == 1)
 			{
@@ -91,6 +113,9 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(BlockRegistry.PamTemperateSaplings[i], 1), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 2), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 5), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytemperateSaplings == 2)
 			{
@@ -98,6 +123,9 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(BlockRegistry.PamTemperateSaplings[i], 1), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 2), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 5), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytemperateSaplings == 3)
 			{
@@ -105,6 +133,9 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(BlockRegistry.PamTemperateSaplings[i], 1), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 2), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 5), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytemperateSaplings == 4)
 			{
@@ -112,6 +143,9 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(BlockRegistry.PamTemperateSaplings[i], 1), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 2), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 5), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytemperateSaplings == 5)
 			{
@@ -119,6 +153,9 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(BlockRegistry.PamTemperateSaplings[i], 1), new ItemStack(Blocks.sapling, 1, 0), BlockRegistry.marketsaplingPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Blocks.sapling, 1, 0), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 2), new ItemStack(Blocks.sapling, 1, 0), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 5), new ItemStack(Blocks.sapling, 1, 0), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytemperateSaplings == 6)
 			{
@@ -126,6 +163,9 @@ public class MarketItems
 				{
 					registerItems(new MarketData(new ItemStack(BlockRegistry.PamTemperateSaplings[i], 1), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
 				}
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 2), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 5), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
 			}
 		}
 		
@@ -139,6 +179,9 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
+
 			}
 			if (BlockRegistry.marketcurrencytropicalSaplings == 1)
 			{
@@ -148,6 +191,8 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytropicalSaplings == 2)
 			{
@@ -157,6 +202,8 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytropicalSaplings == 3)
 			{
@@ -166,6 +213,8 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytropicalSaplings == 4)
 			{
@@ -175,6 +224,8 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytropicalSaplings == 5)
 			{
@@ -184,6 +235,8 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Blocks.sapling, 1, 3), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Blocks.sapling, 1, 3), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Blocks.sapling, 1, 3), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Blocks.sapling, 1, 3), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytropicalSaplings == 6)
 			{
@@ -193,6 +246,8 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Items.apple), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencytropicalSaplings == 7)
 			{
@@ -202,6 +257,8 @@ public class MarketItems
 				}
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pamcinnamonSapling, 1), new ItemStack(Items.dye, 1, 3), BlockRegistry.marketsaplingPrice));
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pampaperbarkSapling, 1), new ItemStack(Items.dye, 1, 3), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 3), new ItemStack(Items.dye, 1, 3), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 4), new ItemStack(Items.dye, 1, 3), BlockRegistry.marketsaplingPrice));
 			}
 			
 		}
@@ -211,26 +268,32 @@ public class MarketItems
 			if (BlockRegistry.marketcurrencyconiferousSaplings == 0)
 			{
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pammapleSapling, 1), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 1), new ItemStack(Items.emerald), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencyconiferousSaplings == 1)
 			{
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pammapleSapling, 1), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 1), new ItemStack(Items.diamond), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencyconiferousSaplings == 2)
 			{
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pammapleSapling, 1), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 1), new ItemStack(Items.gold_ingot), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencyconiferousSaplings == 3)
 			{
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pammapleSapling, 1), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 1), new ItemStack(Items.gold_nugget), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencyconiferousSaplings == 4)
 			{
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pammapleSapling, 1), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 1), new ItemStack(Items.iron_ingot), BlockRegistry.marketsaplingPrice));
 			}
 			if (BlockRegistry.marketcurrencyconiferousSaplings == 5)
 			{
 				registerItems(new MarketData(new ItemStack(BlockRegistry.pammapleSapling, 1), new ItemStack(Blocks.sapling, 1, 1), BlockRegistry.marketsaplingPrice));
+				registerItems(new MarketData(new ItemStack(Blocks.sapling, 1, 1), new ItemStack(Blocks.sapling, 1, 1), BlockRegistry.marketsaplingPrice));
 			}
 		}
 

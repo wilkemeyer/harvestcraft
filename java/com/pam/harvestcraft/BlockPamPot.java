@@ -121,7 +121,7 @@ public class BlockPamPot extends Block {
 
     protected boolean canPlaceBlockOn(Block p_149854_1_)
     {
-        return p_149854_1_ == Blocks.furnace || p_149854_1_ == Blocks.lit_furnace;
+        return p_149854_1_ == Blocks.furnace || p_149854_1_ == Blocks.lit_furnace || p_149854_1_ == BlockRegistry.pamOven || p_149854_1_ == BlockRegistry.pamOvenon;
     }
     
     public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
@@ -157,7 +157,8 @@ public class BlockPamPot extends Block {
      */
     public boolean canBlockStay(World par1World, int par2, int par3, int par4)
     {
-        return par1World.getBlock(par2, par3 - 1, par4) == Blocks.furnace || par1World.getBlock(par2, par3 - 1, par4) == Blocks.lit_furnace;
+        return par1World.getBlock(par2, par3 - 1, par4) == Blocks.furnace || par1World.getBlock(par2, par3 - 1, par4) == Blocks.lit_furnace
+        		|| par1World.getBlock(par2, par3 - 1, par4) == BlockRegistry.pamOven || par1World.getBlock(par2, par3 - 1, par4) == BlockRegistry.pamOvenon;
     }
     
     public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)

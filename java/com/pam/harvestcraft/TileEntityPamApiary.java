@@ -1,7 +1,10 @@
 package com.pam.harvestcraft;
-
+ 
 import java.util.Random;
+ 
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -13,288 +16,304 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-
+ 
 public class TileEntityPamApiary extends TileEntity implements IInventory {
-
-	   private ItemStack[] apiaryItemStacks = new ItemStack[19];
-	   public int apiaryRunTime = 0;
-	   public int currentBeeRunTime = 0;
-	   public int apiaryProduceTime = 0;
-
-
-	   public int getSizeInventory() {
-	      return this.apiaryItemStacks.length;
-	   }
-
-	   public ItemStack getStackInSlot(int par1) {
-	      return this.apiaryItemStacks[par1];
-	   }
-
-	   public ItemStack decrStackSize(int par1, int par2) {
-	      if(this.apiaryItemStacks[par1] != null) {
-	         ItemStack var3;
-	         if(this.apiaryItemStacks[par1].stackSize <= par2) {
-	            var3 = this.apiaryItemStacks[par1];
-	            this.apiaryItemStacks[par1] = null;
-	            return var3;
-	         } else {
-	            var3 = this.apiaryItemStacks[par1].splitStack(par2);
-	            if(this.apiaryItemStacks[par1].stackSize == 0) {
-	               this.apiaryItemStacks[par1] = null;
-	            }
-
-	            return var3;
-	         }
-	      } else {
-	         return null;
-	      }
-	   }
-
-	   public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
-	      this.apiaryItemStacks[par1] = par2ItemStack;
-	      if(par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit()) {
-	         par2ItemStack.stackSize = this.getInventoryStackLimit();
-	      }
-
-	   }
-
-	   public String getInvName() {
-	      return "Apiary";
-	   }
-
-	   public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
-	      super.readFromNBT(par1NBTTagCompound);
-	      NBTTagList var2 = par1NBTTagCompound.getTagList("Items", 10);
-	      this.apiaryItemStacks = new ItemStack[this.getSizeInventory()];
-
-	      for(int var3 = 0; var3 < var2.tagCount(); ++var3) {
-	         NBTTagCompound var4 = (NBTTagCompound)var2.getCompoundTagAt(var3);
-	         byte var5 = var4.getByte("Slot");
-	         if(var5 >= 0 && var5 < this.apiaryItemStacks.length) {
-	            this.apiaryItemStacks[var5] = ItemStack.loadItemStackFromNBT(var4);
-	         }
-	      }
-
-	      this.apiaryRunTime = par1NBTTagCompound.getShort("RunTime");
-	      this.apiaryProduceTime = par1NBTTagCompound.getShort("ProduceTime");
-	      this.currentBeeRunTime = this.getRunTime(this.apiaryItemStacks[1]);
-	   }
-
-	   public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
-	      super.writeToNBT(par1NBTTagCompound);
-	      par1NBTTagCompound.setShort("RunTime", (short)this.apiaryRunTime);
-	      par1NBTTagCompound.setShort("ProduceTime", (short)this.apiaryProduceTime);
-	      NBTTagList var2 = new NBTTagList();
-
-	      for(int var3 = 0; var3 < this.apiaryItemStacks.length; ++var3) {
-	         if(this.apiaryItemStacks[var3] != null) {
-	            NBTTagCompound var4 = new NBTTagCompound();
-	            var4.setByte("Slot", (byte)var3);
-	            this.apiaryItemStacks[var3].writeToNBT(var4);
-	            var2.appendTag(var4);
-	         }
-	      }
-
-	      par1NBTTagCompound.setTag("Items", var2);
-	   }
-
-	   public int getInventoryStackLimit() {
-	      return 64;
-	   }
-
-	   public int getSpeed() {
-	      byte var1 = 2;
-	      int var2 = 3500;
-	      World var3World = super.worldObj;
-	      int varX = super.xCoord;
-	      int varY = super.yCoord;
-	      int varZ = super.zCoord;
-
-	      for(int var4 = -var1; var4 <= var1; ++var4) {
-	         for(int var5 = -var1; var5 <= var1; ++var5) {
-	            if(var4 * var4 + var5 * var5 <= var1 * var1 && (var4 != -(var1 - 1) || var5 != -(var1 - 1)) && (var4 != var1 - 1 || var5 != var1 - 1) && (var4 != var1 - 1 || var5 != -(var1 - 1)) && (var4 != -(var1 - 1) || var5 != var1 - 1)) {
-	               //Block varBlockID = var3World.getBlock(varX + var4, varY, varZ + var5);
-	               if(blockType instanceof BlockFlower) {
-	                  var2 = (int)((double)var2 * 0.95D);
-	               }
-
-	               if(var3World.getBlock(varX + var4, varY, varZ + var5) == BlockRegistry.pamApiary) {
-	                  var2 = (int)((double)var2 / 0.85D);
-	               }
-	            }
-	         }
-	      }
-
-	      return var2;
-	   }
-
-	   public void updateEntity() {
-	      boolean var1 = this.apiaryRunTime > 0;
-	      boolean var2 = false;
-	      if(this.apiaryRunTime > 0) {
-	         --this.apiaryRunTime;
-	      }
-
-	      if(!super.worldObj.isRemote) {
-	         if(this.apiaryRunTime == 0 && this.canRun()) {
-	            this.currentBeeRunTime = this.apiaryRunTime = this.getRunTime(this.apiaryItemStacks[18]);
-	            if(this.apiaryRunTime > 0) {
-	               var2 = true;
-	               if(this.apiaryItemStacks[18] != null) {
-	                  if(this.apiaryItemStacks[18].getItem().getContainerItem() != null) {
-	                     this.apiaryItemStacks[18] = new ItemStack(this.apiaryItemStacks[18].getItem().setFull3D());
-	                  } else {
-	                     this.apiaryItemStacks[18].stackSize -= 0;
-	                  }
-
-	                  if(this.apiaryItemStacks[18].stackSize == 0) {
-	                     this.apiaryItemStacks[18] = null;
-	                  }
-	               }
-	            }
-	         }
-
-	         if(this.canRun()) {
-	            ++this.apiaryProduceTime;
-	            if((double)this.apiaryProduceTime >= Math.floor((double)this.getSpeed())) {
-	               this.apiaryProduceTime = 0;
-	               this.run();
-	               var2 = true;
-	            }
-	         } else {
-	            this.apiaryProduceTime = 0;
-	         }
-
-	         if(var1 != this.apiaryRunTime > 0) {
-	            var2 = true;
-	         }
-	      }
-
-	      if(var2) {
-	         this.onInventoryChanged();
-	      }
-
-	   }
-
-	   public void onInventoryChanged() {}
-
-	   private boolean canRun() 
-	   {
-
-	      //return this.apiaryItemStacks[18] == null?false:this.apiaryItemStacks[18].getItem().itemID == PamHarvestCraft.queenbeeItem.itemID;
-		  //return this.apiaryItemStacks[18] == null?false:this.apiaryItemStacks[18].getItem().itemID == PamHarvestCraft.queenbeeItem.itemID && this.apiaryItemStacks[18].getItemDamage() != 0;
-		  if (this.apiaryItemStacks[18] != null)
-		  {
-			  if (this.apiaryItemStacks[18].getItem() == ItemRegistry.queenbeeItem)
-			  {
-				  if (this.apiaryItemStacks[18].getItemDamage() != 18)
-					  return true;
-			  }
-		  } else 
-			  return false;
-		return false;
-	   }
-
-	   public ItemStack getComb() {
-	      Random var1Random = new Random();
-	      int var2Chance = var1Random.nextInt(100);
-	      if (this.apiaryItemStacks[18] != null)
-		  {
-			  if (this.apiaryItemStacks[18].getItem() == ItemRegistry.queenbeeItem)
-			  {
-				  if (this.apiaryItemStacks[18].getItemDamage() == 17)
-					  return new ItemStack(ItemRegistry.grubItem);
-			  }
-			  if(var2Chance < 50) {
-			         return new ItemStack(ItemRegistry.waxcombItem);
-			      } else if(var2Chance >= 50 && var2Chance < 95) {
-			         return new ItemStack(ItemRegistry.honeycombItem);
-			      }
-				return new ItemStack(ItemRegistry.grubItem);
-		  }
-		return null;  
-			  
-	      
-	      
-	   }
-
-	   public void run() 
-	   {
-		  this.apiaryItemStacks[18].attemptDamageItem(1, null);
-	      ItemStack var1ItemStack = this.getComb();
-	      for(int var2 = 0; var2 < 18; ++var2) {
-	         if(this.apiaryItemStacks[var2] == null) {
-	            this.apiaryItemStacks[var2] = var1ItemStack.copy();
-	            break;
-	 
-	         }
-	      }
-	    }
-	    
-
-	   int getRunTime(ItemStack par1ItemStack) {
-	      return par1ItemStack == null?0:(par1ItemStack.getItem() == ItemRegistry.queenbeeItem?3200:0);
-	   }
-
-	   public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-	      return super.worldObj.getTileEntity(super.xCoord, super.yCoord, super.zCoord) != this?false:par1EntityPlayer.getDistanceSq((double)super.xCoord + 0.5D, (double)super.yCoord + 0.5D, (double)super.zCoord + 0.5D) <= 64.0D;
-	   }
-
-	   public void openChest() {}
-
-	   public void closeChest() {}
-
-	   public ItemStack getStackInSlotOnClosing(int par1) {
-	      return null;
-	   }
-
-	   public boolean isInvNameLocalized() {
-	      return false;
-	   }
-
-	   public boolean isStackValidForSlot(int i, ItemStack itemstack) {
-	      return false;
-	   }
-
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String getInventoryName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean hasCustomInventoryName() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void openInventory() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	public Packet getDescriptionPacket() {
-	NBTTagCompound tag = new NBTTagCompound();
-	this.writeToNBT(tag);
-	return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tag);
-	}
-		
-	@Override
-	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet) {
-	readFromNBT(packet.func_148857_g());
-	}
-
-	@Override
-	public void closeInventory() {
-		// TODO Auto-generated method stub
-		
-	}
-	}
+ 
+        private ItemStack[] inventory = new ItemStack[19];
+        public int runTime = 0;
+        public int currentBeeRunTime = 0;
+        public int produceTime = 0;
+ 
+        public int getSizeInventory() {
+                return this.inventory.length;
+        }
+ 
+        public ItemStack getStackInSlot(int slot) {
+                return this.inventory[slot];
+        }
+ 
+        public ItemStack decrStackSize(int slot, int amount) {
+                // There's nothing in the slot, so nothing can be taken out.
+                if (inventory[slot] == null) {
+                        setInventorySlotContents(slot, null);
+                        return null;
+                }
+                // There's not enough to remove, so just take out as much as we have.
+                if (inventory[slot].stackSize <= amount) {
+                        ItemStack stack = inventory[slot];
+                        setInventorySlotContents(slot, null);
+                        return stack;
+                }
+ 
+                // Finally, the expected case. Remove <amount> items from the stack and
+                // then return those items.
+                ItemStack stack = inventory[slot].splitStack(amount);
+ 
+                // This shouldn't happen, but just in case, this will stop ghost items
+                // from appearing.
+                if (inventory[slot].stackSize <= 0) {
+                        setInventorySlotContents(slot, null);
+                }
+ 
+                markDirty();
+ 
+                return stack;
+        }
+ 
+        public void setInventorySlotContents(int slot, ItemStack stack) {
+                this.inventory[slot] = stack;
+                if (stack != null && stack.stackSize > this.getInventoryStackLimit()) {
+                        stack.stackSize = this.getInventoryStackLimit();
+                }
+ 
+        }
+ 
+        public String getInvName() {
+                return "Apiary";
+        }
+ 
+        public void readFromNBT(NBTTagCompound nbt) {
+                super.readFromNBT(nbt);
+                NBTTagList invTag = nbt.getTagList("Items", 10);
+                this.inventory = new ItemStack[this.getSizeInventory()];
+ 
+                for (int i = 0; i < invTag.tagCount(); ++i) {
+                        NBTTagCompound stackTag = (NBTTagCompound) invTag
+                                        .getCompoundTagAt(i);
+                        byte slot = stackTag.getByte("Slot");
+                        if (slot >= 0 && slot < this.inventory.length) {
+                                this.inventory[slot] = ItemStack.loadItemStackFromNBT(stackTag);
+                        }
+                }
+ 
+                this.runTime = nbt.getShort("RunTime");
+                this.produceTime = nbt.getShort("ProduceTime");
+                this.currentBeeRunTime = this.getRunTime(this.inventory[1]);
+        }
+ 
+        public void writeToNBT(NBTTagCompound nbt) {
+                super.writeToNBT(nbt);
+                nbt.setShort("RunTime", (short) this.runTime);
+                nbt.setShort("ProduceTime", (short) this.produceTime);
+                NBTTagList intTag = new NBTTagList();
+ 
+                for (int i = 0; i < this.inventory.length; ++i) {
+                        if (this.inventory[i] != null) {
+                                NBTTagCompound stackTag = new NBTTagCompound();
+                                stackTag.setByte("Slot", (byte) i);
+                                this.inventory[i].writeToNBT(stackTag);
+                                intTag.appendTag(stackTag);
+                        }
+                }
+ 
+                nbt.setTag("Items", intTag);
+        }
+ 
+        public int getInventoryStackLimit() {
+                return 64;
+        }
+ 
+        public int getRunTime() {
+                byte radius = 2;
+                int speed = 3500;
+                World world = super.worldObj;
+                int varX = super.xCoord;
+                int varY = super.yCoord;
+                int varZ = super.zCoord;
+ 
+                for (int offsetX = -radius; offsetX <= radius; ++offsetX) {
+                        for (int offsetZ = -radius; offsetZ <= radius; ++offsetZ) {
+                                if (offsetX * offsetX + offsetZ * offsetZ <= radius * radius
+                                                && (offsetX != -(radius - 1) || offsetZ != -(radius - 1))
+                                                && (offsetX != radius - 1 || offsetZ != radius - 1)
+                                                && (offsetX != radius - 1 || offsetZ != -(radius - 1))
+                                                && (offsetX != -(radius - 1) || offsetZ != radius - 1)) {
+                                        Block blockAtCoords = world.getBlock(varX + offsetX, varY,
+                                                        varZ + offsetZ);
+                                        if (blockAtCoords instanceof BlockFlower || blockAtCoords instanceof BlockCrops
+                                        		|| blockAtCoords instanceof BlockPamCrop || blockAtCoords instanceof BlockPamNormalGarden) {
+                                                speed = (int) ((double) speed * 0.95D);
+                                        }
+ 
+                                        if (world.getBlock(varX + offsetX, varY, varZ + offsetZ) == BlockRegistry.pamApiary) {
+                                                speed = (int) ((double) speed / 0.85D);
+                                        }
+                                }
+                        }
+                }
+ 
+                return speed;
+        }
+ 
+        public void updateEntity() {
+                boolean isRunning = this.runTime > 0;
+                boolean needsUpdate = false;
+ 
+                if (isRunning) {
+                        --this.runTime;
+                }
+ 
+                ItemStack queenBee = this.inventory[18];
+ 
+                if (!super.worldObj.isRemote) {
+                        if (this.runTime == 0 && this.canRun()) {
+                                this.currentBeeRunTime = this.runTime = this
+                                                .getRunTime(queenBee);
+                                if (this.runTime > 0) {
+                                        needsUpdate = true;
+                                        if (queenBee != null) {
+                                                if (queenBee.getItem().getContainerItem() != null) {
+                                                        queenBee = new ItemStack(queenBee.getItem()
+                                                                        .setFull3D());
+                                                } else {
+                                                        queenBee.stackSize -= 0;
+                                                }
+ 
+                                                if (queenBee.stackSize == 0) {
+                                                        queenBee = null;
+                                                }
+                                        }
+                                }
+                        }
+ 
+                        if (this.canRun()) {
+                                this.produceTime++;
+ 
+                                if (this.produceTime >= Math.floor(this.getRunTime())) {
+                                        this.produceTime = 0;
+                                        this.run();
+                                        needsUpdate = true;
+                                }
+                        } else {
+                                this.produceTime = 0;
+                        }
+ 
+                        if (isRunning != this.runTime > 0) {
+                                needsUpdate = true;
+                        }
+                }
+ 
+                if (needsUpdate) {
+                        markDirty();
+                        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+                }
+ 
+        }
+ 
+        private boolean canRun() {
+                if (this.inventory[18] != null) {
+                        if (this.inventory[18].getItem() == ItemRegistry.queenbeeItem) {
+                                if (this.inventory[18].getItemDamage() != this.inventory[18]
+                                                .getMaxDamage())
+                                        return true;
+                        }
+                } else
+                        return false;
+                return false;
+        }
+ 
+        public ItemStack getComb() {
+                Random rnd = new Random();
+                int rndnum = rnd.nextInt(100);
+                if (this.inventory[18] != null) {
+                        if (this.inventory[18].getItem() == ItemRegistry.queenbeeItem) {
+                                if (this.inventory[18].getItemDamage() == 17)
+                                        return new ItemStack(ItemRegistry.grubItem);
+                        }
+                        if (rndnum < 50) {
+                                return new ItemStack(ItemRegistry.waxcombItem);
+                        } else if (rndnum >= 50 && rndnum < 95) {
+                                return new ItemStack(ItemRegistry.honeycombItem);
+                        }
+                        return new ItemStack(ItemRegistry.grubItem);
+                }
+                return null;
+ 
+        }
+ 
+        public void run() {
+                this.inventory[18].attemptDamageItem(1, null);
+                ItemStack itemProduced = this.getComb();
+                for (int i = 0; i < 18; ++i) {
+                        if (this.inventory[i] == null) {
+                                this.inventory[i] = itemProduced.copy();
+                                break;
+                        }
+                }
+        }
+ 
+        int getRunTime(ItemStack stack) {
+                if (stack == null) {
+                        return 0;
+                }
+ 
+                if (stack.getItem() == ItemRegistry.queenbeeItem) {
+                        return 3200;
+                }
+ 
+                return 0;
+        }
+ 
+        public boolean isUseableByPlayer(EntityPlayer player) {
+                if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+                        return false;
+                }
+                return player
+                                .getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
+        }
+ 
+        public void openChest() {
+        }
+ 
+        public void closeChest() {
+        }
+ 
+        public ItemStack getStackInSlotOnClosing(int slot) {
+                return null;
+        }
+ 
+        public boolean isInvNameLocalized() {
+                return false;
+        }
+ 
+        public boolean isStackValidForSlot(int slot, ItemStack stack) {
+                // No automation.
+                return false;
+        }
+ 
+        @Override
+        public boolean isItemValidForSlot(int slot, ItemStack stack) {
+                return false;
+        }
+ 
+        @Override
+        public String getInventoryName() {
+                return null;
+        }
+ 
+        @Override
+        public boolean hasCustomInventoryName() {
+                return false;
+        }
+ 
+        @Override
+        public void openInventory() {
+        }
+ 
+        @Override
+        public Packet getDescriptionPacket() {
+                NBTTagCompound tag = new NBTTagCompound();
+                this.writeToNBT(tag);
+                return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tag);
+        }
+ 
+        @Override
+        public void onDataPacket(NetworkManager net,
+                        S35PacketUpdateTileEntity packet) {
+                readFromNBT(packet.func_148857_g());
+        }
+ 
+        @Override
+        public void closeInventory() {
+        }
+}
