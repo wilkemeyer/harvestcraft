@@ -1,21 +1,24 @@
-package com.pam.harvestcraft;
+/*    */ package com.pam.harvestcraft;
+/*    */ 
+/*    */ import net.minecraft.block.BlockTorch;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class BlockPamCandleDeco
+/*    */   extends BlockTorch
+/*    */ {
+/*    */   protected BlockPamCandleDeco()
+/*    */   {
+/* 16 */     this.setCreativeTab(harvestcraft.tabHarvestCraft);
+/*    */   }
+/*    */ }
 
-import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockTorch;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
-public class BlockPamCandleDeco extends BlockTorch {
-
-	protected BlockPamCandleDeco() {
-		super();
-		this.setCreativeTab(harvestcraft.tabHarvestCraft);
-		// TODO Auto-generated constructor stub
-	}
-
-
-}
+/* Location:              C:\Users\Modding\Desktop\Pam's HarvestCraft 1.7.10k.deobf.jar!\com\pam\harvestcraft\BlockPamCandleDeco.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,40 +1,73 @@
-package com.pam.harvestcraft;
+/*    */ package com.pam.harvestcraft;
+/*    */ 
+/*    */ import net.minecraft.init.Blocks;
+/*    */ import net.minecraftforge.oredict.OreDictionary;
+/*    */ 
+/*    */ 
+/*    */ public class PamOtherOreDictionaryRegistry
+/*    */ {
+/*    */   public static void getRegistry()
+/*    */   {
+/* 11 */     OreDictionary.registerOre("toolPot", ItemRegistry.potItem);
+/* 12 */     OreDictionary.registerOre("toolSkillet", ItemRegistry.skilletItem);
+/* 13 */     OreDictionary.registerOre("toolSaucepan", ItemRegistry.saucepanItem);
+/* 14 */     OreDictionary.registerOre("toolBakeware", ItemRegistry.bakewareItem);
+/* 15 */     OreDictionary.registerOre("toolCuttingboard", ItemRegistry.cuttingboardItem);
+/* 16 */     OreDictionary.registerOre("toolMortarandpestle", ItemRegistry.mortarandpestleItem);
+/* 17 */     OreDictionary.registerOre("toolMixingbowl", ItemRegistry.mixingbowlItem);
+/* 18 */     OreDictionary.registerOre("toolJuicer", ItemRegistry.juicerItem);
+/*    */     
+/* 20 */     OreDictionary.registerOre("cropCotton", ItemRegistry.cottonItem);
+/* 21 */     OreDictionary.registerOre("seedCotton", ItemRegistry.cottonseedItem);
+/* 22 */     OreDictionary.registerOre("materialCloth", ItemRegistry.wovencottonItem);
+/*    */     
+/* 24 */     OreDictionary.registerOre("cropCandle", ItemRegistry.candleberryItem);
+/* 25 */     OreDictionary.registerOre("cropCandleberry", ItemRegistry.candleberryItem);
+/* 26 */     OreDictionary.registerOre("seedCandleberry", ItemRegistry.candleberryseedItem);
+/* 27 */     OreDictionary.registerOre("materialPressedwax", ItemRegistry.waxItem);
+/* 28 */     OreDictionary.registerOre("materialHardenedleather", ItemRegistry.hardenedleatherItem);
+/*    */     
+/* 30 */     OreDictionary.registerOre("grainBait", ItemRegistry.grainbaitItem);
+/* 31 */     OreDictionary.registerOre("veggieBait", ItemRegistry.veggiebaitItem);
+/* 32 */     OreDictionary.registerOre("fruitBait", ItemRegistry.fruitbaitItem);
+/* 33 */     OreDictionary.registerOre("fishtrapBait", ItemRegistry.fishtrapbaitItem);
+/*    */     
+/* 35 */     OreDictionary.registerOre("dustSalt", ItemRegistry.saltItem);
+/* 36 */     OreDictionary.registerOre("itemSalt", ItemRegistry.saltItem);
+/*    */     
+/* 38 */     OreDictionary.registerOre("beeQueen", ItemRegistry.queenbeeItem);
+/* 39 */     OreDictionary.registerOre("materialWaxcomb", ItemRegistry.waxcombItem);
+/* 40 */     OreDictionary.registerOre("materialHoneycomb", ItemRegistry.honeycombItem);
+/* 41 */     OreDictionary.registerOre("foodHoneydrop", ItemRegistry.honeyItem);
+/* 42 */     OreDictionary.registerOre("dropHoney", ItemRegistry.honeyItem);
+/* 43 */     OreDictionary.registerOre("materialPressedwax", ItemRegistry.beeswaxItem);
+/* 44 */     OreDictionary.registerOre("grubBee", ItemRegistry.grubItem);
+/*    */     
+/* 46 */     OreDictionary.registerOre("flowerRed", Blocks.red_flower);
+/* 47 */     OreDictionary.registerOre("flowerYellow", Blocks.yellow_flower);
+/*    */     
+/* 49 */     OreDictionary.registerOre("blockTorch", Blocks.torch);
+/* 50 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco1);
+/* 51 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco2);
+/* 52 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco3);
+/* 53 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco4);
+/* 54 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco5);
+/* 55 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco6);
+/* 56 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco7);
+/* 57 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco8);
+/* 58 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco9);
+/* 59 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco10);
+/* 60 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco11);
+/* 61 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco12);
+/* 62 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco13);
+/* 63 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco14);
+/* 64 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco15);
+/* 65 */     OreDictionary.registerOre("blockTorch", BlockRegistry.pamcandleDeco16);
+/*    */   }
+/*    */ }
 
-import net.minecraftforge.oredict.OreDictionary;
 
-public class PamOtherOreDictionaryRegistry 
-{
-	public static void getRegistry()
-	{
-		OreDictionary.registerOre("toolPot", ItemRegistry.potItem);
-		OreDictionary.registerOre("toolSkillet", ItemRegistry.skilletItem);
-		OreDictionary.registerOre("toolSaucepan", ItemRegistry.saucepanItem);
-		OreDictionary.registerOre("toolBakeware", ItemRegistry.bakewareItem);
-		OreDictionary.registerOre("toolCuttingboard", ItemRegistry.cuttingboardItem);
-		OreDictionary.registerOre("toolMortarandpestle", ItemRegistry.mortarandpestleItem);
-		OreDictionary.registerOre("toolMixingbowl", ItemRegistry.mixingbowlItem);
-		OreDictionary.registerOre("toolJuicer", ItemRegistry.juicerItem);
-		
-		OreDictionary.registerOre("cropCotton", ItemRegistry.cottonItem);
-		OreDictionary.registerOre("seedCotton", ItemRegistry.cottonseedItem);
-		OreDictionary.registerOre("materialCloth", ItemRegistry.wovencottonItem);
-		
-		OreDictionary.registerOre("cropCandle", ItemRegistry.candleberryItem);
-		OreDictionary.registerOre("seedCandleberry", ItemRegistry.candleberryseedItem);
-		OreDictionary.registerOre("materialPressedwax", ItemRegistry.waxItem);
-		OreDictionary.registerOre("materialHardenedleather", ItemRegistry.hardenedleatherItem);
-		
-		OreDictionary.registerOre("dustSalt", ItemRegistry.saltItem);
-		OreDictionary.registerOre("itemSalt", ItemRegistry.saltItem);
-		
-		OreDictionary.registerOre("beeQueen", ItemRegistry.queenbeeItem);
-		OreDictionary.registerOre("materialWaxcomb", ItemRegistry.waxcombItem);
-		OreDictionary.registerOre("materialHoneycomb", ItemRegistry.honeycombItem);
-		OreDictionary.registerOre("foodHoneydrop", ItemRegistry.honeyItem);
-		OreDictionary.registerOre("dropHoney", ItemRegistry.honeyItem);
-		OreDictionary.registerOre("materialPressedwax", ItemRegistry.beeswaxItem);
-		OreDictionary.registerOre("grubBee", ItemRegistry.grubItem);
-		
-		
-	}
-}
+/* Location:              C:\Users\Modding\Desktop\Pam's HarvestCraft 1.7.10k.deobf.jar!\com\pam\harvestcraft\PamOtherOreDictionaryRegistry.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       0.7.1
+ */

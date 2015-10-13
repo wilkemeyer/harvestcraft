@@ -1,99 +1,100 @@
-package com.pam.harvestcraft;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
-import net.minecraft.world.World;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-public class CraftingManagerPamCuttingBoard
-{
-/** The static instance of this class */
-private static final CraftingManagerPamCuttingBoard instance = new CraftingManagerPamCuttingBoard();
-
-/** A list of all the recipes added */
-@SuppressWarnings("rawtypes")
-private List recipes = new ArrayList();
-
-/**
-         * Returns the static instance of this class
-         */
-public static final CraftingManagerPamCuttingBoard getInstance()
-{
-         return instance;
-}
-
-@SuppressWarnings({ "rawtypes", "unchecked" })
-private CraftingManagerPamCuttingBoard()
-{
-         recipes = new ArrayList();
-        
-                //Your recipes go here
-         this.recipes.add(new ShapelessOreRecipe(ItemRegistry.potatosaladItem, Items.baked_potato, "foodMayo"));
-         this.recipes.add(new ShapelessOreRecipe(ItemRegistry.eggsaladItem,  "foodBoiledegg", "foodMayo"));
-         this.recipes.add(new ShapelessOreRecipe(ItemRegistry.fruitsaladItem, "listAllfruit", "listAllfruit"));
-         this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", Items.carrot));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropOnion"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropRadish"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropCucumber"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropBellpepper"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropSpiceleaf"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropZucchini"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropAsparagus"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropBroccoli"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropPeas"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropTomato"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropSunflower"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropWalnut"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropCauliflower"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem,  "cropLettuce", "cropRhubarb"));
- 		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.porklettucewrapItem,  "cropLettuce", "listAllporkcooked"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.fishlettucewrapItem,  "cropLettuce", "listAllfishcooked"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.bltItem,  "cropLettuce", "cropTomato", "listAllporkcooked", "foodToast"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.nachoesItem,  "foodTortilla", "foodCheese"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.pbandjItem,  "foodPeanutbutter", "foodGrapejelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.cucumbersaladItem,  "cropCucumber", "foodSpringsalad"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.vegetarianlettucewrapItem,  "cropCucumber", "cropLettuce", "cropTomato"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.grilledskewersItem,  "cropBellpepper", "cropOnion", Items.carrot, Items.stick));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.supremepizzaItem,  "foodPizza", "cropBellpepper", "cropOnion", "cropSpiceleaf"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.guacamoleItem, "cropAvocado", "cropChilipepper", "cropTomato", "cropOnion", "cropSpiceleaf"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.avocadoburritoItem,  "cropAvocado", "foodTortilla", "foodCheese", Items.cooked_chicken));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.avocadoburritoItem,  "cropAvocado", "foodTortilla", "foodCheese", Items.cooked_porkchop));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.footlongItem,  Items.bread, "listAllmeatcooked", "cropLettuce", "cropTomato", "foodMayo"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.mixedsaladItem, "listAllveggie", "listAllveggie", "foodSaladdressing"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.sushiItem, "listAllfishraw", "cropSeaweed", "cropRice"));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.applejellysandwichItem,  "foodPeanutbutter", "foodApplejelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.blackberryjellysandwichItem,  "foodPeanutbutter", "foodBlackberryjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.blueberryjellysandwichItem,  "foodPeanutbutter", "foodBlueberryjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.cherryjellysandwichItem,  "foodPeanutbutter", "foodCherryjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.cranberryjellysandwichItem,  "foodPeanutbutter", "foodCranberryjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.kiwijellysandwichItem,  "foodPeanutbutter", "foodKiwijelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.lemonjellysandwichItem,  "foodPeanutbutter", "foodLemonjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.limejellysandwichItem,  "foodPeanutbutter", "foodLimejelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.mangojellysandwichItem,  "foodPeanutbutter", "foodMangojelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.orangejellysandwichItem,  "foodPeanutbutter", "foodOrangejelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.papayajellysandwichItem,  "foodPeanutbutter", "foodPapayajelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.peachjellysandwichItem,  "foodPeanutbutter", "foodPeachjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.pomegranatejellysandwichItem,  "foodPeanutbutter", "foodPomegranatejelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.raspberryjellysandwichItem,  "foodPeanutbutter", "foodRaspberryjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.starfruitjellysandwichItem,  "foodPeanutbutter", "foodStarfruitjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.strawberryjellysandwichItem,  "foodPeanutbutter", "foodStrawberryjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.watermelonjellysandwichItem,  "foodPeanutbutter", "foodWatermelonjelly", Items.bread));
-		this.recipes.add(new ShapelessOreRecipe(ItemRegistry.ediblerootItem,  "cropSpiceleaf"));
-
-                Collections.sort(this.recipes, new RecipeSorterPamCuttingBoard(this));
-}
-
+/*     */ package com.pam.harvestcraft;
+/*     */ 
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Collections;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.List;
+/*     */ import net.minecraft.block.Block;
+/*     */ import net.minecraft.init.Items;
+/*     */ import net.minecraft.inventory.InventoryCrafting;
+/*     */ import net.minecraft.item.Item;
+/*     */ import net.minecraft.item.ItemStack;
+/*     */ import net.minecraft.item.crafting.IRecipe;
+/*     */ import net.minecraft.item.crafting.ShapedRecipes;
+/*     */ import net.minecraft.item.crafting.ShapelessRecipes;
+/*     */ import net.minecraft.world.World;
+/*     */ import net.minecraftforge.oredict.ShapelessOreRecipe;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class CraftingManagerPamCuttingBoard
+/*     */ {
+/*  22 */   private static final CraftingManagerPamCuttingBoard instance = new CraftingManagerPamCuttingBoard();
+/*     */   
+/*     */ 
+/*  25 */   private List recipes = new ArrayList();
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final CraftingManagerPamCuttingBoard getInstance()
+/*     */   {
+/*  33 */     return instance;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   private CraftingManagerPamCuttingBoard()
+/*     */   {
+/*  39 */     this.recipes = new ArrayList();
+/*     */     
+/*     */ 
+/*  42 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.potatosaladItem, new Object[] { Items.baked_potato, "foodMayo" }));
+/*  43 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.eggsaladItem, new Object[] { "foodBoiledegg", "foodMayo" }));
+/*  44 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.fruitsaladItem, new Object[] { "listAllfruit", "listAllfruit" }));
+/*  45 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", Items.carrot }));
+/*  46 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropOnion" }));
+/*  47 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropRadish" }));
+/*  48 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropCucumber" }));
+/*  49 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropBellpepper" }));
+/*  50 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropSpiceleaf" }));
+/*  51 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropZucchini" }));
+/*  52 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropAsparagus" }));
+/*  53 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropBroccoli" }));
+/*  54 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropPeas" }));
+/*  55 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropTomato" }));
+/*  56 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropSunflower" }));
+/*  57 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropWalnut" }));
+/*  58 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropCauliflower" }));
+/*  59 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.springsaladItem, new Object[] { "cropLettuce", "cropRhubarb" }));
+/*  60 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.porklettucewrapItem, new Object[] { "cropLettuce", "listAllporkcooked" }));
+/*  61 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.fishlettucewrapItem, new Object[] { "cropLettuce", "listAllfishcooked" }));
+/*  62 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.bltItem, new Object[] { "cropLettuce", "cropTomato", "listAllporkcooked", "foodToast" }));
+/*  63 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.nachoesItem, new Object[] { "foodTortilla", "foodCheese" }));
+/*  64 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.pbandjItem, new Object[] { "foodPeanutbutter", "foodGrapejelly", Items.bread }));
+/*  65 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.cucumbersaladItem, new Object[] { "cropCucumber", "foodSpringsalad" }));
+/*  66 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.vegetarianlettucewrapItem, new Object[] { "cropCucumber", "cropLettuce", "cropTomato" }));
+/*  67 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.grilledskewersItem, new Object[] { "cropBellpepper", "cropOnion", Items.carrot, Items.stick }));
+/*  68 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.supremepizzaItem, new Object[] { "foodPizza", "cropBellpepper", "cropOnion", "cropSpiceleaf" }));
+/*  69 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.guacamoleItem, new Object[] { "cropAvocado", "cropChilipepper", "cropTomato", "cropOnion", "cropSpiceleaf" }));
+/*  70 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.avocadoburritoItem, new Object[] { "cropAvocado", "foodTortilla", "foodCheese", Items.cooked_chicken }));
+/*  71 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.avocadoburritoItem, new Object[] { "cropAvocado", "foodTortilla", "foodCheese", Items.cooked_porkchop }));
+/*  72 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.footlongItem, new Object[] { Items.bread, "listAllmeatcooked", "cropLettuce", "cropTomato", "foodMayo" }));
+/*  73 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.mixedsaladItem, new Object[] { "listAllveggie", "listAllveggie", "foodSaladdressing" }));
+/*  74 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.sushiItem, new Object[] { "listAllfishraw", "cropSeaweed", "cropRice" }));
+/*  75 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.applejellysandwichItem, new Object[] { "foodPeanutbutter", "foodApplejelly", Items.bread }));
+/*  76 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.blackberryjellysandwichItem, new Object[] { "foodPeanutbutter", "foodBlackberryjelly", Items.bread }));
+/*  77 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.blueberryjellysandwichItem, new Object[] { "foodPeanutbutter", "foodBlueberryjelly", Items.bread }));
+/*  78 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.cherryjellysandwichItem, new Object[] { "foodPeanutbutter", "foodCherryjelly", Items.bread }));
+/*  79 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.cranberryjellysandwichItem, new Object[] { "foodPeanutbutter", "foodCranberryjelly", Items.bread }));
+/*  80 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.kiwijellysandwichItem, new Object[] { "foodPeanutbutter", "foodKiwijelly", Items.bread }));
+/*  81 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.lemonjellysandwichItem, new Object[] { "foodPeanutbutter", "foodLemonjelly", Items.bread }));
+/*  82 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.limejellysandwichItem, new Object[] { "foodPeanutbutter", "foodLimejelly", Items.bread }));
+/*  83 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.mangojellysandwichItem, new Object[] { "foodPeanutbutter", "foodMangojelly", Items.bread }));
+/*  84 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.orangejellysandwichItem, new Object[] { "foodPeanutbutter", "foodOrangejelly", Items.bread }));
+/*  85 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.papayajellysandwichItem, new Object[] { "foodPeanutbutter", "foodPapayajelly", Items.bread }));
+/*  86 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.peachjellysandwichItem, new Object[] { "foodPeanutbutter", "foodPeachjelly", Items.bread }));
+/*  87 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.pomegranatejellysandwichItem, new Object[] { "foodPeanutbutter", "foodPomegranatejelly", Items.bread }));
+/*  88 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.raspberryjellysandwichItem, new Object[] { "foodPeanutbutter", "foodRaspberryjelly", Items.bread }));
+/*  89 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.starfruitjellysandwichItem, new Object[] { "foodPeanutbutter", "foodStarfruitjelly", Items.bread }));
+/*  90 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.strawberryjellysandwichItem, new Object[] { "foodPeanutbutter", "foodStrawberryjelly", Items.bread }));
+/*  91 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.watermelonjellysandwichItem, new Object[] { "foodPeanutbutter", "foodWatermelonjelly", Items.bread }));
+/*  92 */     this.recipes.add(new ShapelessOreRecipe(ItemRegistry.ediblerootItem, new Object[] { "cropSpiceleaf" }));
+/*     */     
+/*  94 */     Collections.sort(this.recipes, new RecipeSorterPamCuttingBoard(this));
+/*     */   }
+/*     */   
+/*     */ 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public ShapedRecipes addRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
 {
@@ -169,39 +170,39 @@ public ShapedRecipes addRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfOb
          return shapedrecipes;
 }
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
-public void addShapelessRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
-{
-         ArrayList arraylist = new ArrayList();
-         Object[] aobject = par2ArrayOfObj;
-         int i = par2ArrayOfObj.length;
-
-         for (int j = 0; j < i; ++j)
-         {
-                 Object object1 = aobject[j];
-
-                 if (object1 instanceof ItemStack)
-                 {
-                         arraylist.add(((ItemStack)object1).copy());
-                 }
-                 else if (object1 instanceof Item)
-                 {
-                         arraylist.add(new ItemStack((Item)object1));
-                 }
-                 else
-                 {
-                         if (!(object1 instanceof Block))
-                         {
-                                 throw new RuntimeException("Invalid shapeless recipy!");
-                         }
-
-                         arraylist.add(new ItemStack((Block)object1));
-                 }
-         }
-
-         this.recipes.add(new ShapelessRecipes(par1ItemStack, arraylist));
-}
-
+/*     */ 
+/*     */   public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj)
+/*     */   {
+/* 175 */     ArrayList arraylist = new ArrayList();
+/* 176 */     Object[] aobject = par2ArrayOfObj;
+/* 177 */     int i = par2ArrayOfObj.length;
+/*     */     
+/* 179 */     for (int j = 0; j < i; j++)
+/*     */     {
+/* 181 */       Object object1 = aobject[j];
+/*     */       
+/* 183 */       if ((object1 instanceof ItemStack))
+/*     */       {
+/* 185 */         arraylist.add(((ItemStack)object1).copy());
+/*     */       }
+/* 187 */       else if ((object1 instanceof Item))
+/*     */       {
+/* 189 */         arraylist.add(new ItemStack((Item)object1));
+/*     */       }
+/*     */       else
+/*     */       {
+/* 193 */         if (!(object1 instanceof Block))
+/*     */         {
+/* 195 */           throw new RuntimeException("Invalid shapeless recipy!");
+/*     */         }
+/*     */         
+/* 198 */         arraylist.add(new ItemStack((Block)object1));
+/*     */       }
+/*     */     }
+/*     */     
+/* 202 */     this.recipes.add(new ShapelessRecipes(par1ItemStack, arraylist));
+/*     */   }
+/*     */   
 public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World)
 {
     int i = 0;
@@ -260,12 +261,15 @@ public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, Wor
     }
 }
 
-/**
-         * returns the List<> of all recipes
-         */
-@SuppressWarnings("rawtypes")
-public List getRecipeList()
-{
-         return this.recipes;
-}
-}
+/*     */ 
+/*     */   public List getRecipeList()
+/*     */   {
+/* 269 */     return this.recipes;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Modding\Desktop\Pam's HarvestCraft 1.7.10k.deobf.jar!\com\pam\harvestcraft\CraftingManagerPamCuttingBoard.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       0.7.1
+ */

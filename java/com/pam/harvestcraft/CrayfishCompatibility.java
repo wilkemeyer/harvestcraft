@@ -9,6 +9,7 @@ import com.mrcrayfish.furniture.api.RecipeVariables;
 
 public class CrayfishCompatibility 
 {
+	
 	public static void registerRecipes(IRecipeRegistry registry)
     {
 		//OVEN
@@ -226,6 +227,21 @@ public class CrayfishCompatibility
         turtle.addValue("input", new ItemStack(ItemRegistry.turtlerawItem));
         turtle.addValue("output", new ItemStack(ItemRegistry.turtlecookedItem));
         registry.registerRecipe("oven", turtle);
+        
+        RecipeVariables turkey = new RecipeVariables();
+        turkey.addValue("input", new ItemStack(ItemRegistry.turkeyrawItem));
+        turkey.addValue("output", new ItemStack(ItemRegistry.turkeycookedItem));
+        registry.registerRecipe("oven", turkey);
+        
+        RecipeVariables rabbit = new RecipeVariables();
+        rabbit.addValue("input", new ItemStack(ItemRegistry.rabbitrawItem));
+        rabbit.addValue("output", new ItemStack(ItemRegistry.rabbitcookedItem));
+        registry.registerRecipe("oven", rabbit);
+        
+        RecipeVariables venison = new RecipeVariables();
+        venison.addValue("input", new ItemStack(ItemRegistry.venisonrawItem));
+        venison.addValue("output", new ItemStack(ItemRegistry.venisoncookedItem));
+        registry.registerRecipe("oven", venison);
         
         //TOASTER
         RecipeVariables toastertoast = new RecipeVariables();
@@ -448,5 +464,20 @@ public class CrayfishCompatibility
         microturtle.addValue("input", new ItemStack(ItemRegistry.turtlerawItem));
         microturtle.addValue("output", new ItemStack(ItemRegistry.turtlecookedItem));
         registry.registerRecipe("microwave", microturtle);
+        
+        RecipeVariables microturkey = new RecipeVariables();
+        microturkey.addValue("input", new ItemStack(ItemRegistry.turkeyrawItem));
+        microturkey.addValue("output", new ItemStack(ItemRegistry.turkeycookedItem));
+        registry.registerRecipe("microwave", microturkey);
+        
+        RecipeVariables microrabbit = new RecipeVariables();
+        microrabbit.addValue("input", new ItemStack(ItemRegistry.rabbitrawItem));
+        microrabbit.addValue("output", new ItemStack(ItemRegistry.rabbitcookedItem));
+        registry.registerRecipe("microwave", microrabbit);
+        
+        RecipeVariables microvenison = new RecipeVariables();
+        microvenison.addValue("input", new ItemStack(ItemRegistry.venisonrawItem));
+        microvenison.addValue("output", new ItemStack(ItemRegistry.venisoncookedItem));
+        registry.registerRecipe("microwave", microvenison);
     }
 }

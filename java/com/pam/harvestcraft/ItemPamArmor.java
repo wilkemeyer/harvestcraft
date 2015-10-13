@@ -1,30 +1,33 @@
-package com.pam.harvestcraft;
+/*    */ package com.pam.harvestcraft;
+/*    */ 
+/*    */ import net.minecraft.entity.Entity;
+/*    */ import net.minecraft.item.ItemArmor;
+/*    */ import net.minecraft.item.ItemStack;
+/*    */ 
+/*    */ class ItemPamArmor extends ItemArmor
+/*    */ {
+/*    */   public ItemPamArmor(net.minecraft.item.ItemArmor.ArmorMaterial enumarmormaterial, int k)
+/*    */   {
+/* 11 */     super(enumarmormaterial, 0, k);
+/* 12 */     this.maxStackSize = 1;
+/* 13 */     setCreativeTab(harvestcraft.tabHarvestCraft);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
+/*    */   {
+/* 21 */     String layer = "1";
+/* 22 */     if (slot == 2) {
+/* 23 */       layer = "2";
+/*    */     }
+/* 25 */     return "harvestcraft:textures/armor/hardenedleather_" + layer + ".png";
+/*    */   }
+/*    */ }
 
-import net.minecraft.entity.Entity;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
 
-class ItemPamArmor extends ItemArmor 
-{
-	public ItemPamArmor(ArmorMaterial enumarmormaterial, int k)
-		{
-			super(enumarmormaterial, 0, k);
-				maxStackSize = 1;
-				this.setCreativeTab(harvestcraft.tabHarvestCraft);
-		}
-
-	@Override
-    public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-            //slot will tell us helmet vs. boots
-            //type will be either null or overlay (cloth armor)
-            //can use stack.stackTagCompound.getString("matName") for material, etc.
-            String layer = "1";
-            if(slot == 2) {
-                    layer="2";
-            }
-            return "harvestcraft:textures/armor/hardenedleather_"+layer+".png";
-    }
-	
-
-
-}
+/* Location:              C:\Users\Modding\Desktop\Pam's HarvestCraft 1.7.10k.deobf.jar!\com\pam\harvestcraft\ItemPamArmor.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       0.7.1
+ */

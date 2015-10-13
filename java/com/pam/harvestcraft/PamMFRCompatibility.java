@@ -43,7 +43,8 @@ public class PamMFRCompatibility
 				BlockRegistry.pameggplantCrop, BlockRegistry.pamokraCrop, BlockRegistry.pampeasCrop, 
 				BlockRegistry.pamtomatoCrop, BlockRegistry.pamcottonCrop, BlockRegistry.pampineappleCrop, 
 				BlockRegistry.pamgrapeCrop, BlockRegistry.pamkiwiCrop, BlockRegistry.pamcranberryCrop, 
-				BlockRegistry.pamriceCrop, BlockRegistry.pamseaweedCrop, BlockRegistry.pamspinachCrop
+				BlockRegistry.pamriceCrop, BlockRegistry.pamseaweedCrop, BlockRegistry.pamspinachCrop,
+				BlockRegistry.pamcurryleafCrop, BlockRegistry.pamsesameseedsCrop, BlockRegistry.pamwaterchestnutCrop
 				});
 		
 		PamCropItems = (new Item[] 
@@ -66,7 +67,8 @@ public class PamMFRCompatibility
 				ItemRegistry.eggplantItem, ItemRegistry.okraItem, ItemRegistry.peasItem, 
 				ItemRegistry.tomatoItem, ItemRegistry.cottonItem, ItemRegistry.pineappleItem, 
 				ItemRegistry.grapeItem, ItemRegistry.kiwiItem, ItemRegistry.cranberryItem, 
-				ItemRegistry.riceItem, ItemRegistry.seaweedItem, ItemRegistry.spinachItem
+				ItemRegistry.riceItem, ItemRegistry.seaweedItem, ItemRegistry.spinachItem,
+				ItemRegistry.curryItem, ItemRegistry.sesameseedsItem, ItemRegistry.waterchestnutItem
 				});
 
 		PamCropSeeds = (new Item[] 
@@ -89,14 +91,15 @@ public class PamMFRCompatibility
 				ItemRegistry.eggplantseedItem, ItemRegistry.okraseedItem, ItemRegistry.peasseedItem, 
 				ItemRegistry.tomatoseedItem, ItemRegistry.cottonseedItem, ItemRegistry.pineappleseedItem, 
 				ItemRegistry.grapeseedItem, ItemRegistry.kiwiseedItem, ItemRegistry.cranberryseedItem, 
-				ItemRegistry.riceseedItem, ItemRegistry.seaweedItem, ItemRegistry.spinachseedItem
+				ItemRegistry.riceseedItem, ItemRegistry.seaweedseedItem, ItemRegistry.spinachseedItem,
+				ItemRegistry.curryleafseedItem, ItemRegistry.sesameseedsseedItem, ItemRegistry.waterchestnutseedItem
 				});
 		
 		PamTemperateSaplings = (new Block[] 
 				{
                 	BlockRegistry.pamappleSapling, BlockRegistry.pamavocadoSapling, BlockRegistry.pamcherrySapling, 
                 	BlockRegistry.pamchestnutSapling, BlockRegistry.pamnutmegSapling, BlockRegistry.pampearSapling, 
-                	BlockRegistry.pamplumSapling, BlockRegistry.pamwalnutSapling 
+                	BlockRegistry.pamplumSapling, BlockRegistry.pamwalnutSapling, BlockRegistry.pamgooseberrySapling
 				});
 		
 		PamWarmSaplings = (new Block[] 
@@ -120,7 +123,7 @@ public class PamMFRCompatibility
 				{
                 	BlockRegistry.pamApple, BlockRegistry.pamAvocado, BlockRegistry.pamCherry, 
                 	BlockRegistry.pamChestnut, BlockRegistry.pamNutmeg, BlockRegistry.pamPear, 
-                	BlockRegistry.pamPlum, BlockRegistry.pamWalnut 
+                	BlockRegistry.pamPlum, BlockRegistry.pamWalnut, BlockRegistry.pamGooseberry
 				});
 		
 		PamWarmFruits = (new Block[] 
@@ -144,7 +147,7 @@ public class PamMFRCompatibility
 				{
                 	Items.apple, ItemRegistry.avocadoItem, ItemRegistry.cherryItem, 
                 	ItemRegistry.chestnutItem, ItemRegistry.nutmegItem, ItemRegistry.pearItem, 
-                	ItemRegistry.plumItem, ItemRegistry.walnutItem 
+                	ItemRegistry.plumItem, ItemRegistry.walnutItem, ItemRegistry.gooseberryItem
 				});
 		
 		PamWarmFruitItems = (new Item[] 
@@ -164,7 +167,7 @@ public class PamMFRCompatibility
                 	ItemRegistry.cinnamonItem, ItemRegistry.maplesyrupItem, Items.paper
 				});
 		
-		for(int i = 0; i < 57; ++i)
+		for(int i = 0; i < 60; ++i)
 		{
 			FactoryRegistry.sendMessage("registerPlantable",new PlantableMFRCrop(PamCropItems[i], PamCrops[i]));
 			FactoryRegistry.sendMessage("registerPlantable",new PlantableMFRCrop(PamCropSeeds[i], PamCrops[i]));
@@ -172,7 +175,7 @@ public class PamMFRCompatibility
 			FactoryRegistry.sendMessage("registerFertilizable",new FertilizableMFRCrop(PamCrops[i]));
 		}
 		
-		for(int i = 0; i < 8; ++i)
+		for(int i = 0; i < 9; ++i)
 		{
 			FactoryRegistry.sendMessage("registerFertilizable", new FertilizableMFRSapling(PamTemperateSaplings[i]));
 			FactoryRegistry.sendMessage("registerPickableFruit", new PickableMFRFruit(PamTemperateFruits[i], PamTemperateFruitItems[i], 0));

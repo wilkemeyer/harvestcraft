@@ -4,6 +4,7 @@ itemGroup.tabHarvestCraft3=HarvestCraft Food
 
 # Tooltips
 tooltip.harvestcraft.item.queenbeeItem=Apiary: Honeycomb, Waxcomb, Grubs\nCrafting Grid: Royal Jelly at 0 Durability
+tooltip.harvestcraft.item.greenheartfishItem=An ocelot's favorite treat
 
 # Blocks
 tile.cuttingboard.name=Cutting Board
@@ -19,10 +20,17 @@ sink_2.name=Clay Jug
 sink_3.name=Brick Well
 
 tile.salt.name=Salt Ore
+tile.pamcompressedsaltBlock.name=Compressed Salt Block
 
 tile.market.name=Market
 
 tile.oven.name=Oven
+
+tile.churn.name=Churn
+tile.quern.name=Quern
+tile.fishtrap.name=Fish Trap
+tile.animaltrap.name=Animal Trap
+tile.dehydrator.name=Dehydrator
 
 tile.berrygarden.name=Berry Garden
 tile.desertgarden.name=Desert Garden
@@ -72,6 +80,7 @@ tile.pamPomegranate.name=Pomegranate
 tile.pamStarfruit.name=Starfruit
 tile.pamVanillabean.name=Vanilla Bean
 tile.pamWalnut.name=Walnut
+tile.pamGooseberry.name=Goosberry
 
 tile.pamalmondSapling.name=Almond Sapling
 tile.pamappleSapling.name=Apple Sapling
@@ -108,6 +117,7 @@ tile.pampomegranateSapling.name=Pomegranate Sapling
 tile.pamstarfruitSapling.name=Starfruit Sapling
 tile.pamvanillabeanSapling.name=Vanilla Sapling
 tile.pamwalnutSapling.name=Walnut Sapling
+tile.pamgooseberrySapling.name=Gooseberry Sapling
 
 tile.pamblackberryCrop.name=Blackberry Crop
 tile.pamblueberryCrop.name=Blueberry Crop
@@ -166,6 +176,9 @@ tile.pamkiwiCrop.name=Kiwi Crop
 tile.pamcranberryCrop.name=Cranberry Crop
 tile.pamriceCrop.name=Rice Crop
 tile.pamseaweedCrop.name=Seaweed Crop
+tile.pamcurryleafCrop.name=Curry Leaf Crop
+tile.pamsesameseedsCrop.name=Sesame Seeds Crop
+tile.pamwaterchestnutCrop.name=Water Chestnut Crop
 
 tile.pamcandleDeco1.name=White Candle
 tile.pamcandleDeco2.name=Orange Candle
@@ -188,11 +201,12 @@ tile.pamcarrotCake.name=Carrot Cake
 tile.pamcheeseCake.name=Cheese Cake
 tile.pamcherrycheeseCake.name=Cherry Cheese Cake
 tile.pampineappleupsidedownCake.name=Pineapple Upside Down Cake
-tile.pamchocolatesprinkleCake.name=Chocolate Sprinkle Cake
+tile.pamchocolatesprinkleCake.name=Chocolate Sprinkles Cake
 tile.pamredvelvetCake.name=Red Velvet Cake
 tile.pamlamingtonCake.name=Lamington
 tile.pampavlovaCake.name=Pavlova
 tile.pamholidayCake.name=Holiday Cake
+tile.pampumpkincheeseCake.name=Pumpkin Cheese Cake
 
 # Items
 item.cottonItem.name=Cotton
@@ -216,6 +230,11 @@ item.honeyItem.name=Honey
 item.beeswaxItem.name=Beeswax
 item.royaljellyItem.name=Royal Jelly
 item.grubItem.name=Bee Grub
+
+item.grainbaitItem.name=Grain Bait
+item.veggiebaitItem.name=Veggie Bait
+item.fruitbaitItem.name=Fruit Bait
+item.fishtrapbaitItem.name=Fish Trap Bait
 
 item.potItem.name=Pot
 item.skilletItem.name=Skillet
@@ -353,6 +372,12 @@ item.bambooshootItem.name=Bamboo Shoot
 item.bambooshootseedItem.name=Bamboo Shoot Seed
 item.spinachItem.name=Spinach
 item.spinachseedItem.name=Spinach Seed
+item.curryleafItem.name=Curry Leaf
+item.curryleafseedItem.name=Curry Leaf Seed
+item.sesameseedsItem.name=Sesame Seeds
+item.sesameseedsseedItem.name=Sesame Seeds Seed
+item.waterchestnutItem.name=Water Chestnut
+item.waterchestnutseedItem.name=Water Chestnut Seed
         
 item.almondItem.name=Almond
 item.apricotItem.name=Apricot
@@ -387,6 +412,7 @@ item.pomegranateItem.name=Pomegranate
 item.starfruitItem.name=Starfruit
 item.vanillabeanItem.name=Vanilla Bean
 item.walnutItem.name=Walnut
+item.gooseberryItem.name=Gooseberry
 
 item.grilledasparagusItem.name=Grilled Asparagus
 item.ricecakeItem.name=Rice Cake
@@ -396,6 +422,7 @@ item.coffeeItem.name=Cup of Coffee
 item.grilledeggplantItem.name=Grilled Eggplant
 item.toastedcoconutItem.name=Toasted Coconut
 item.vanillaItem.name=Vanilla
+item.toastedsesameseedsItem.name=Toasted Sesame Seeds
         
 item.saltItem.name=Salt
 item.flourItem.name=Flour
@@ -752,7 +779,7 @@ item.meatystewItem.name=Meaty Stew
 item.mixedsaladItem.name=Mixed Salad
 item.pinacoladaItem.name=Pinacolada
 item.saladdressingItem.name=Salad Dressing
-item.shepardspieItem.name=Shepard's Pie
+item.shepardspieItem.name=Shepherd's Pie
 item.eggnogItem.name=Egg Nog
 item.custardItem.name=Custard
 item.sushiItem.name=Sushi
@@ -880,7 +907,7 @@ item.maplecandiedbaconItem.name=Maple Candied Bacon
 item.toastsandwichItem.name=Toast Sandwich
 item.potatoandcheesepirogiItem.name=Potato and Cheese Pirogi
 item.zeppoleItem.name=Zeppole
-item.sausageinbreadItem.name=Sauage in Bread
+item.sausageinbreadItem.name=Sausage in Bread
 item.chocolatecaramelfudgeItem.name=Chocolate Caramel Fudge
 item.lavendershortbreadItem.name=Lavender Shortbread
 item.beefwellingtonItem.name=Beef Wellington
@@ -969,3 +996,69 @@ item.pepperoniItem.name=Pepperoni
 item.pickledonionsItem.name=Pickled Onions
 item.porksausageItem.name=Pork Sausage
 item.raspberrytrifleItem.name=Raspberry Trifle
+item.pumpkincheesecakeItem.name=Pumpkin Cheesecake
+item.pumpkinmuffinItem.name=Pumpkin Muffin
+item.suaderoItem.name=Suadero
+item.randomtacoItem.name=Random Taco
+
+item.turkeyrawItem.name=Raw Turkey
+item.turkeycookedItem.name=Cooked Turkey
+item.rabbitrawItem.name=Raw Rabbit
+item.rabbitcookedItem.name=Cooked Rabbit
+item.venisonrawItem.name=Raw Venison
+item.venisoncookedItem.name=Cooked Venison
+
+item.strawberrymilkshakeItem.name=Strawberry Milkshake
+item.chocolatemilkshakeItem.name=Chocolate Milkshake
+item.bananamilkshakeItem.name=Banana Milkeshake
+item.cornflakesItem.name=Cornflakes
+item.coleslawburgerItem.name=Coleslaw Burger
+item.roastchickenItem.name=Roast Chicken
+item.roastpotatoesItem.name=Roast Potatoes
+item.sundayroastItem.name=Sunday Roast
+item.bbqpulledporkItem.name=BBQ Pulled Pork
+item.lambwithmintsauceItem.name=Lamb with Mint Sauce
+item.steakandchipsItem.name=Steak and Chips
+
+item.cherryicecreamItem.name=Cherry Ice Cream
+item.pistachioicecreamItem.name=Pistachio Ice Cream
+item.neapolitanicecreamItem.name=Neapolitan Ice Cream
+item.spumoniicecreamItem.name=Spumoni Ice Cream
+
+item.almondbutterItem.name=Almond Butter
+item.cashewbutterItem.name=Cashew Butter
+item.chestnutbutterItem.name=Chestnut Butter
+item.cornishpastyItem.name=Cornish Pasty
+item.cottagepieItem.name=Cottage Pie
+item.croissantItem.name=Croissant
+item.currypowderItem.name=Curry Powder
+item.dimsumItem.name=Dim Sum
+item.friedpecanokraItem.name=Fried Pecan Okra
+item.gooseberryjellyItem.name=Gooseberry Jelly
+item.gooseberryjellysandwichItem.name=Gooseberry Jelly Sandwich
+item.gooseberrymilkshakeItem.name=Gooseberry Milkshake
+item.gooseberrypieItem.name=Gooseberry Pie
+item.gooseberrysmoothieItem.name=Gooseberry Smoothie
+item.gooseberryyogurtItem.name=Gooseberry Yogurt
+item.greenheartfishItem.name=Green Heart Fish
+item.hamsweetpicklesandwichItem.name=Ham & Sweet Pickle Sandwich
+item.hushpuppiesItem.name=Hushpuppies
+item.kimchiItem.name=Kimchi
+item.mochiItem.name=Mochi
+item.museliItem.name=Museli
+item.naanItem.name=Naan
+item.okrachipsItem.name=Okra Chips
+item.okracreoleItem.name=Okra Creole
+item.pistachiobutterItem.name=Pistachio Butter
+item.ploughmanslunchItem.name=Ploughman's Lunch
+item.porklomeinItem.name=Pork Lo Mein
+item.salmonpattiesItem.name=Salmon Patties
+item.sausageItem.name=Sausage
+item.sausagerollItem.name=Sausage Roll
+item.sesameballItem.name=Sesame Ball
+item.sesamesnapsItem.name=Sesame Snaps
+item.shrimpokrahushpuppiesItem.name=Shrimp Pork Okra Hushpuppies
+item.soysauceItem.name=Soy Sauce
+item.sweetpickleItem.name=Sweet Pickle
+item.veggiestripsItem.name=Veggie Strips
+item.vindalooItem.name=Vindaloo
