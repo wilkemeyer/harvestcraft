@@ -39,6 +39,11 @@ public class PlantableMFRCrop implements IFactoryPlantable
 	    @Override
 	    public void prePlant (World world, int x, int y, int z, ItemStack stack)
 	    {
+			Block ground = world.getBlock(x, y - 1, z);
+			if (ground.equals(Blocks.grass) || ground.equals(Blocks.dirt))
+			{
+				world.setBlock(x, y - 1, z, Blocks.farmland);
+			}
 	        return;
 	    }
 
